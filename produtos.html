@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Produtos | FLUXO Equipamentos Esportivos</title>
+
+    <!-- Estilos compartilhados do site -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Estilos exclusivos do catálogo -->
+    <link rel="stylesheet" href="produtos.css">
+
+    <script src="conta.js" defer></script>
+    <script src="script.js" defer></script>
+    <script src="produtos.js" defer></script>
+</head>
+<body>
+
+    <!-- NAVBAR: mesma estrutura do index.html -->
+    <header class="cabecalho">
+        <nav class="navbar">
+
+            <a href="index.html#inicio" class="logo">
+                <img src="logo.fluxo.png" alt="Logo FLUXO">
+            </a>
+
+            <button class="menu-toggle"
+                    id="menu-toggle"
+                    aria-label="Abrir menu"
+                    aria-expanded="false"
+                    aria-controls="menu"
+                    type="button">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="menu" id="menu">
+                <div class="links">
+                    <a href="index.html">Início</a>
+                    <a href="produtos.html" aria-current="page">Produtos</a>
+                    <a href="como-funciona.html">Como funciona</a>
+                    <a href="sobre-nos.html">Sobre nós</a>
+                    <a href="reserva.html">Reserve aqui</a>
+                </div>
+
+                <div class="acoes">
+                    <a href="login.html" class="botao">Entrar</a>
+                    <a href="cadastro.html" class="botao">Criar conta</a>
+                </div>
+            </div>
+
+        </nav>
+    </header>
+
+    <main class="pagina-produtos">
+
+        <!-- BANNER -->
+        <section class="produtos-banner">
+            <div class="produtos-banner-conteudo">
+                <h1>Produtos</h1>
+                <p>
+                    Confira nossa seleção de equipamentos
+                    esportivos para elevar sua performance.
+                </p>
+            </div>
+        </section>
+
+        <!-- CAMINHO DA PÁGINA -->
+        <nav class="breadcrumb" aria-label="Navegação estrutural">
+            <a href="index.html">Início</a>
+            <span aria-hidden="true">&gt;</span>
+            <span aria-current="page">Produtos</span>
+        </nav>
+
+        <!-- CATÁLOGO -->
+        <section class="catalogo" aria-label="Catálogo de equipamentos">
+
+            <div class="catalogo-lista">
+
+                <!-- RAQUETE -->
+                <article class="catalogo-card">
+                    <a href="produto.html?item=raquete"
+                       class="catalogo-imagem"
+                       aria-label="Ver detalhes da raquete de beach tennis">
+                        <img src="raquete.png"
+                             alt="Raquete de Beach Tennis FLUXO"
+                             loading="eager">
+                    </a>
+
+                    <div class="catalogo-info">
+                        <h2>Raquete de Beach Tennis</h2>
+                        <p class="catalogo-preco">R$ 45,00 <span>/dia</span></p>
+                        <a href="produto.html?item=raquete"
+                           class="catalogo-alugar">Alugar</a>
+                    </div>
+                </article>
+
+                <!-- BICICLETA -->
+                <article class="catalogo-card">
+                    <a href="produto.html?item=bicicleta"
+                       class="catalogo-imagem"
+                       aria-label="Ver detalhes da bicicleta MTB">
+                        <img src="bicicleta.png"
+                             alt="Bicicleta MTB FLUXO"
+                             loading="eager">
+                    </a>
+
+                    <div class="catalogo-info">
+                        <h2>Bicicleta MTB</h2>
+                        <p class="catalogo-preco">R$ 75,00 <span>/dia</span></p>
+                        <a href="produto.html?item=bicicleta"
+                           class="catalogo-alugar">Alugar</a>
+                    </div>
+                </article>
+
+                <!-- STAND UP PADDLE -->
+                <article class="catalogo-card">
+                    <a href="produto.html?item=sup"
+                       class="catalogo-imagem"
+                       aria-label="Ver detalhes do stand up paddle">
+                        <img src="stand-up-paddle.png"
+                             alt="Prancha de stand up paddle FLUXO"
+                             loading="eager">
+                    </a>
+
+                    <div class="catalogo-info">
+                        <h2>Stand Up Paddle</h2>
+                        <p class="catalogo-preco">R$ 90,00 <span>/dia</span></p>
+                        <a href="produto.html?item=sup"
+                           class="catalogo-alugar">Alugar</a>
+                    </div>
+                </article>
+
+                <!-- PATINS -->
+                <article class="catalogo-card">
+                    <a href="produto.html?item=patins"
+                       class="catalogo-imagem"
+                       aria-label="Ver detalhes dos patins inline">
+                        <img src="patins.png"
+                             alt="Patins inline FLUXO"
+                             loading="eager">
+                    </a>
+
+                    <div class="catalogo-info">
+                        <h2>Patins Inline</h2>
+                        <p class="catalogo-preco">R$ 40,00 <span>/dia</span></p>
+                        <a href="produto.html?item=patins"
+                           class="catalogo-alugar">Alugar</a>
+                    </div>
+                </article>
+
+                <!-- BARRACA -->
+                <article class="catalogo-card">
+                    <a href="produto.html?item=barraca"
+                       class="catalogo-imagem"
+                       aria-label="Ver detalhes da barraca de camping">
+                        <img src="barraca.png"
+                             alt="Barraca de camping FLUXO"
+                             loading="lazy">
+                    </a>
+
+                    <div class="catalogo-info">
+                        <h2>Barraca de Camping</h2>
+                        <p class="catalogo-preco">R$ 60,00 <span>/dia</span></p>
+                        <a href="produto.html?item=barraca"
+                           class="catalogo-alugar">Alugar</a>
+                    </div>
+                </article>
+
+                <!-- CAIAQUE -->
+                <article class="catalogo-card">
+                    <a href="produto.html?item=caiaque"
+                       class="catalogo-imagem"
+                       aria-label="Ver detalhes do caiaque">
+                        <img src="caiaque.png"
+                             alt="Caiaque sit-on-top FLUXO"
+                             loading="lazy">
+                    </a>
+
+                    <div class="catalogo-info">
+                        <h2>Caiaque Sit-on-Top</h2>
+                        <p class="catalogo-preco">R$ 80,00 <span>/dia</span></p>
+                        <a href="produto.html?item=caiaque"
+                           class="catalogo-alugar">Alugar</a>
+                    </div>
+                </article>
+
+                <!-- BOLA -->
+                <article class="catalogo-card">
+                    <a href="produto.html?item=bola"
+                       class="catalogo-imagem"
+                       aria-label="Ver detalhes da bola de futebol">
+                        <img src="bola.png"
+                             alt="Bola de futebol FLUXO"
+                             loading="lazy">
+                    </a>
+
+                    <div class="catalogo-info">
+                        <h2>Bola de Futebol</h2>
+                        <p class="catalogo-preco">R$ 15,00 <span>/dia</span></p>
+                        <a href="produto.html?item=bola"
+                           class="catalogo-alugar">Alugar</a>
+                    </div>
+                </article>
+
+                <!-- KIT DE BADMINTON -->
+                <article class="catalogo-card">
+                    <a href="produto.html?item=badminton"
+                       class="catalogo-imagem"
+                       aria-label="Ver detalhes do kit de badminton">
+                        <img src="kit-badminton.png"
+                             alt="Kit de badminton FLUXO"
+                             loading="lazy">
+                    </a>
+
+                    <div class="catalogo-info">
+                        <h2>Kit de Badminton</h2>
+                        <p class="catalogo-preco">R$ 45,00 <span>/dia</span></p>
+                        <a href="produto.html?item=badminton"
+                           class="catalogo-alugar">Alugar</a>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER: mesma estrutura do site -->
+    <footer class="rodape">
+
+        <div class="rodape-conteudo">
+
+            <div class="rodape-marca">
+                <a href="index.html#inicio" class="rodape-logo">
+                    <img src="logo.fluxo.png" alt="FLUXO">
+                </a>
+
+                <p>
+                    Facilitamos o seu acesso ao esporte com
+                    equipamentos de qualidade e praticidade
+                    que cabem no seu ritmo.
+                </p>
+            </div>
+
+            <div class="rodape-coluna">
+                <h3>Links rápidos</h3>
+                <a href="produtos.html">Produtos</a>
+                <a href="como-funciona.html">Como Funciona</a>
+                <a href="sobre-nos.html">Sobre nós</a>
+                <a href="login.html">Login</a>
+            </div>
+
+            <div class="rodape-coluna">
+                <h3>Contatos</h3>
+                <a href="https://wa.me/5512209872233"
+                   target="_blank"
+                   rel="noopener noreferrer">(12) 20987-2233</a>
+                <a href="mailto:fluxoesporte@gmail.com">
+                    fluxoesporte@gmail.com
+                </a>
+                <span>São Paulo - SP</span>
+            </div>
+
+            <div class="rodape-coluna">
+                <h3>Ajuda</h3>
+                <a href="perguntas-frequentes.html">Perguntas frequentes</a>
+                <a href="politica-de-locacao.html">Política de locação</a>
+                <a href="termos-de-uso.html">Termos de uso</a>
+            </div>
+
+        </div>
+
+        <div class="rodape-inferior">
+            <p>© 2026 Fluxo. Todos os direitos reservados.</p>
+
+            <a href="https://www.instagram.com/fluxo.esporte/?utm_source=ig_web_button_share_sheet"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Instagram da FLUXO"
+               class="instagram-link">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <rect x="3" y="3" width="18" height="18" rx="5"/>
+                    <circle cx="12" cy="12" r="4"/>
+                    <circle cx="18" cy="6" r="1"
+                            fill="currentColor" stroke="none"/>
+                </svg>
+            </a>
+        </div>
+
+    </footer>
+
+</body>
+</html>

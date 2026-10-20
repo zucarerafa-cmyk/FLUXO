@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Reserva confirmada | FLUXO Equipamentos Esportivos</title>
+
+    <!-- Estilos compartilhados do site -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Estilos exclusivos da página de reserva concluída -->
+    <link rel="stylesheet" href="reserva-concluida.css">
+
+    <script src="conta.js" defer></script>
+    <script src="script.js" defer></script>
+    <script src="reserva-concluida.js" defer></script>
+</head>
+<body>
+
+    <!-- NAVBAR: mesma estrutura do restante do site -->
+    <header class="cabecalho">
+        <nav class="navbar">
+
+            <a href="index.html#inicio" class="logo">
+                <img src="logo.fluxo.png" alt="Logo FLUXO">
+            </a>
+
+            <button class="menu-toggle"
+                    id="menu-toggle"
+                    aria-label="Abrir menu"
+                    aria-expanded="false"
+                    aria-controls="menu"
+                    type="button">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="menu" id="menu">
+                <div class="links">
+                    <a href="index.html">Início</a>
+                    <a href="produtos.html">Produtos</a>
+                    <a href="como-funciona.html">Como funciona</a>
+                    <a href="sobre-nos.html">Sobre nós</a>
+                    <a href="reserva.html">Reserve aqui</a>
+                </div>
+
+                <div class="acoes">
+                    <a href="login.html" class="botao">Entrar</a>
+                    <a href="cadastro.html" class="botao">Criar conta</a>
+                </div>
+            </div>
+
+        </nav>
+    </header>
+
+    <main class="pagina-concluida">
+
+        <!-- QUANDO NÃO HÁ RESERVA CONCLUÍDA -->
+        <section class="rc-vazio" id="rc-vazio" hidden>
+            <svg viewBox="0 0 48 48" aria-hidden="true">
+                <rect x="7" y="9" width="34" height="32" rx="5"/>
+                <path d="M15 4v8M33 4v8M7 19h34"/>
+            </svg>
+            <h1>Nenhuma reserva encontrada</h1>
+            <p>Não encontramos uma reserva concluída. Escolha seus equipamentos e faça uma nova reserva.</p>
+            <a href="reserva.html" class="rc-botao">Fazer uma reserva</a>
+        </section>
+
+        <div id="rc-conteudo">
+
+            <!-- TOPO: confetes + mensagem de sucesso -->
+            <section class="rc-topo">
+
+                <div class="rc-confetes" id="rc-confetes" aria-hidden="true"></div>
+
+                <div class="rc-topo-conteudo">
+                    <div class="rc-selo" aria-hidden="true">
+                        <svg viewBox="0 0 48 48">
+                            <path d="M13 25l8 8 15-17"/>
+                        </svg>
+                    </div>
+
+                    <h1>Reserva Confirmada!</h1>
+                    <p>Tudo certo! Seus equipamentos estão reservados.</p>
+                </div>
+
+            </section>
+
+            <!-- CÓDIGO DA RESERVA -->
+            <section class="rc-codigo" aria-label="Código da reserva">
+                <div class="rc-codigo-info">
+                    <svg viewBox="0 0 48 48" aria-hidden="true">
+                        <rect x="5" y="9" width="38" height="35" rx="6"/>
+                        <path d="M15 4v10M33 4v10M5 20h38"/>
+                        <circle cx="15" cy="28" r="1.6"/>
+                        <circle cx="24" cy="28" r="1.6"/>
+                        <circle cx="33" cy="28" r="1.6"/>
+                        <circle cx="15" cy="37" r="1.6"/>
+                        <circle cx="24" cy="37" r="1.6"/>
+                        <circle cx="33" cy="37" r="1.6"/>
+                    </svg>
+                    <div>
+                        <span>Código da reserva</span>
+                        <strong id="rc-codigo">FLX-000000-0000</strong>
+                    </div>
+                </div>
+
+                <a href="index.html" class="rc-botao-contorno">Voltar a página inicial</a>
+            </section>
+
+            <!-- RESUMO DA RESERVA -->
+            <section class="rc-resumo" aria-labelledby="rc-titulo-resumo">
+
+                <h2 class="rc-resumo-titulo" id="rc-titulo-resumo">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M6 2.5h8l5 5V20a1.5 1.5 0 01-1.5 1.5h-11.5A1.5 1.5 0 014.5 20V4A1.5 1.5 0 016 2.5z"/>
+                        <path d="M14 2.5V8h5"/>
+                    </svg>
+                    Resumo da reserva
+                </h2>
+
+                <ul class="rc-itens" id="rc-itens"></ul>
+
+                <div class="rc-total">
+                    <span>Total Pago</span>
+                    <strong id="rc-total">R$ 0,00</strong>
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+    <!-- FOOTER: mesma estrutura do site -->
+    <footer class="rodape">
+
+        <div class="rodape-conteudo">
+
+            <div class="rodape-marca">
+                <a href="index.html#inicio" class="rodape-logo">
+                    <img src="logo.fluxo.png" alt="FLUXO">
+                </a>
+
+                <p>
+                    Facilitamos o seu acesso ao esporte com
+                    equipamentos de qualidade e praticidade
+                    que cabem no seu ritmo.
+                </p>
+            </div>
+
+            <div class="rodape-coluna">
+                <h3>Links rápidos</h3>
+                <a href="produtos.html">Produtos</a>
+                <a href="como-funciona.html">Como Funciona</a>
+                <a href="sobre-nos.html">Sobre nós</a>
+                <a href="login.html">Login</a>
+            </div>
+
+            <div class="rodape-coluna">
+                <h3>Contatos</h3>
+                <a href="https://wa.me/5512209872233"
+                   target="_blank"
+                   rel="noopener noreferrer">(12) 20987-2233</a>
+                <a href="mailto:fluxoesporte@gmail.com">
+                    fluxoesporte@gmail.com
+                </a>
+                <span>São Paulo - SP</span>
+            </div>
+
+            <div class="rodape-coluna">
+                <h3>Ajuda</h3>
+                <a href="perguntas-frequentes.html">Perguntas frequentes</a>
+                <a href="politica-de-locacao.html">Política de locação</a>
+                <a href="termos-de-uso.html">Termos de uso</a>
+            </div>
+
+        </div>
+
+        <div class="rodape-inferior">
+            <p>© 2026 Fluxo. Todos os direitos reservados.</p>
+
+            <a href="https://www.instagram.com/fluxo.esporte/?utm_source=ig_web_button_share_sheet"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Instagram da FLUXO"
+               class="instagram-link">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <rect x="3" y="3" width="18" height="18" rx="5"/>
+                    <circle cx="12" cy="12" r="4"/>
+                    <circle cx="18" cy="6" r="1"
+                            fill="currentColor" stroke="none"/>
+                </svg>
+            </a>
+        </div>
+
+    </footer>
+
+</body>
+</html>

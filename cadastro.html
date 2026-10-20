@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cadastro | FLUXO Equipamentos Esportivos</title>
+
+    <!-- Estilos compartilhados do site -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Estilos de login e cadastro -->
+    <link rel="stylesheet" href="conta.css">
+
+    <script src="conta.js" defer></script>
+    <script src="cadastro.js" defer></script>
+</head>
+<body>
+
+    <!-- NAVBAR: mesma estrutura do restante do site -->
+    <header class="cabecalho">
+        <nav class="navbar">
+
+            <a href="index.html#inicio" class="logo">
+                <img src="logo.fluxo.png" alt="Logo FLUXO">
+            </a>
+
+            <button class="menu-toggle"
+                    id="menu-toggle"
+                    aria-label="Abrir menu"
+                    aria-expanded="false"
+                    aria-controls="menu"
+                    type="button">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="menu" id="menu">
+                <div class="links">
+                    <a href="index.html">Início</a>
+                    <a href="produtos.html">Produtos</a>
+                    <a href="como-funciona.html">Como funciona</a>
+                    <a href="sobre-nos.html">Sobre nós</a>
+                    <a href="reserva.html">Reserve aqui</a>
+                </div>
+
+                <div class="acoes">
+                    <a href="login.html" class="botao">Entrar</a>
+                    <a href="cadastro.html" class="botao">Criar conta</a>
+                </div>
+            </div>
+
+        </nav>
+    </header>
+
+    <main class="pagina-auth">
+
+            <!-- PAINEL ESQUERDO -->
+            <section class="auth-visual" aria-label="Apresentação da FLUXO">
+                <div class="auth-visual-topo">
+                    <span class="auth-etiqueta">Bem-vindo a Fluxo</span>
+                    <h1>Seu esporte<br>nossa <span>energia.</span></h1>
+                    <p>
+                        Alugue os melhores equipamentos esportivos
+                        com praticidade, qualidade e segurança
+                    </p>
+
+                    <ul class="auth-vantagens">
+                        <li>
+                            <span class="auth-vantagem-icone" aria-hidden="true">
+                                <svg viewBox="0 0 48 48">
+                                    <path d="M24 5l15 6v11c0 10-6 17-15 21C15 39 9 32 9 22V11z"/>
+                                    <path d="M17 24l5 5 9-10"/>
+                                </svg>
+                            </span>
+                            <div>
+                                <strong>Equipamentos de qualidade</strong>
+                                <span>Produtos seguros e prontos para o seu melhor desempenho.</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="auth-vantagem-icone" aria-hidden="true">
+                                <svg viewBox="0 0 48 48">
+                                    <path d="M4 12h24v22H4zM28 19h8l8 8v7H28z"/>
+                                    <circle cx="14" cy="36" r="4"/>
+                                    <circle cx="36" cy="36" r="4"/>
+                                </svg>
+                            </span>
+                            <div>
+                                <strong>Entrega rápida e segura</strong>
+                                <span>Receba onde quiser com toda a praticidade.</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="auth-vantagem-icone" aria-hidden="true">
+                                <svg viewBox="0 0 48 48">
+                                    <path d="M9 28v-4a15 15 0 0130 0v4"/>
+                                    <rect x="6" y="26" width="8" height="12" rx="3"/>
+                                    <rect x="34" y="26" width="8" height="12" rx="3"/>
+                                    <path d="M38 38c0 4-4 6-9 6"/>
+                                </svg>
+                            </span>
+                            <div>
+                                <strong>Suporte completo</strong>
+                                <span>Atendimento humanizado sempre que precisar.</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- PAINEL DIREITO -->
+            <section class="auth-form-area">
+                <div class="auth-caixa">
+                <div class="auth-logo" aria-hidden="true">
+                    <img src="fluxo-icon.png" alt="">
+                </div>
+
+                    <h2>Crie sua conta</h2>
+                    <p class="auth-subtitulo">
+                        Preencha os dados abaixo para começar
+                        a aproveitar o melhor do esporte.
+                    </p>
+
+                    <div class="auth-aviso erro" id="aviso-erro" role="alert" hidden></div>
+
+                    <form id="form-cadastro" novalidate>
+
+                    <div class="auth-campo">
+                        <label for="nome">Nome completo</label>
+                        <div class="auth-entrada">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
+                            <input type="text" id="nome" name="nome" placeholder="Seu nome completo" autocomplete="name" aria-describedby="erro-nome">
+                        </div>
+                        <small class="auth-erro-campo" id="erro-nome"></small>
+                    </div>
+
+                    <div class="auth-campo">
+                        <label for="email">E-mail</label>
+                        <div class="auth-entrada">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7l8.5 6 8.5-6"/></svg>
+                            <input type="email" id="email" name="email" placeholder="seuemail@email.com" autocomplete="email" aria-describedby="erro-email">
+                        </div>
+                        <small class="auth-erro-campo" id="erro-email"></small>
+                    </div>
+
+                    <div class="auth-campo">
+                        <label for="senha">Senha</label>
+                        <div class="auth-entrada">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9.5" rx="2.5"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>
+                            <input type="password" id="senha" name="senha" placeholder="********" autocomplete="new-password" aria-describedby="erro-senha">
+                        </div>
+                        <small class="auth-erro-campo" id="erro-senha"></small>
+                    </div>
+
+                    <div class="auth-campo">
+                        <label for="confirmar">Confirmar senha</label>
+                        <div class="auth-entrada">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9.5" rx="2.5"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>
+                            <input type="password" id="confirmar" name="confirmar" placeholder="********" autocomplete="new-password" aria-describedby="erro-confirmar">
+                        </div>
+                        <small class="auth-erro-campo" id="erro-confirmar"></small>
+                    </div>
+
+                        <div class="auth-termos">
+                            <label class="auth-check" for="termos">
+                                <input type="checkbox" id="termos" aria-describedby="erro-termos">
+                                <span>
+                                    Li e aceito os
+                                    <a href="termos-de-uso.html" target="_blank" rel="noopener">termos de uso</a>
+                                    e a
+                                    <a href="politica-de-locacao.html" target="_blank" rel="noopener">política de privacidade</a>
+                                </span>
+                            </label>
+                            <small class="auth-erro-campo" id="erro-termos"></small>
+                        </div>
+
+                        <button type="submit" class="auth-botao" id="botao-criar">Criar</button>
+
+                    </form>
+
+                    <p class="auth-troca">
+                        Já tem uma conta? <a href="login.html">Entrar</a>
+                    </p>
+                </div>
+            </section>
+
+    </main>
+
+    <!-- FOOTER: mesma estrutura do site -->
+    <footer class="rodape">
+
+        <div class="rodape-conteudo">
+
+            <div class="rodape-marca">
+                <a href="index.html#inicio" class="rodape-logo">
+                    <img src="logo.fluxo.png" alt="FLUXO">
+                </a>
+
+                <p>
+                    Facilitamos o seu acesso ao esporte com
+                    equipamentos de qualidade e praticidade
+                    que cabem no seu ritmo.
+                </p>
+            </div>
+
+            <div class="rodape-coluna">
+                <h3>Links rápidos</h3>
+                <a href="produtos.html">Produtos</a>
+                <a href="como-funciona.html">Como Funciona</a>
+                <a href="index.html#sobre">Sobre nós</a>
+                <a href="login.html">Login</a>
+            </div>
+
+            <div class="rodape-coluna">
+                <h3>Contatos</h3>
+                <a href="https://wa.me/5512209872233"
+                   target="_blank"
+                   rel="noopener noreferrer">(12) 20987-2233</a>
+                <a href="mailto:fluxoesporte@gmail.com">
+                    fluxoesporte@gmail.com
+                </a>
+                <span>São Paulo - SP</span>
+            </div>
+
+            <div class="rodape-coluna">
+                <h3>Ajuda</h3>
+                <a href="perguntas-frequentes.html">Perguntas frequentes</a>
+                <a href="politica-de-locacao.html">Política de locação</a>
+                <a href="termos-de-uso.html">Termos de uso</a>
+            </div>
+
+        </div>
+
+        <div class="rodape-inferior">
+            <p>© 2026 Fluxo. Todos os direitos reservados.</p>
+
+            <a href="https://www.instagram.com/fluxo.esporte/?utm_source=ig_web_button_share_sheet"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Instagram da FLUXO"
+               class="instagram-link">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <rect x="3" y="3" width="18" height="18" rx="5"/>
+                    <circle cx="12" cy="12" r="4"/>
+                    <circle cx="18" cy="6" r="1"
+                            fill="currentColor" stroke="none"/>
+                </svg>
+            </a>
+        </div>
+
+    </footer>
+
+</body>
+</html>

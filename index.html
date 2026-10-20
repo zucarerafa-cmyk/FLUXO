@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FLUXO | Equipamentos Esportivos</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="conta.js" defer></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header class="cabecalho">
+        <nav class="navbar">
+
+            <a href="#inicio" class="logo">
+                <img src="logo.fluxo.png" alt="Logo FLUXO">
+            </a>
+
+            <button class="menu-toggle"
+                    id="menu-toggle"
+                    aria-label="Abrir menu"
+                    aria-expanded="false"
+                    aria-controls="menu"
+                    type="button">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="menu" id="menu">
+
+                <div class="links">
+                    <a href="index.html">Início</a>
+                    <a href="produtos.html">Produtos</a>
+                    <a href="como-funciona.html">Como funciona</a>
+                    <a href="sobre-nos.html">Sobre nós</a>
+                    <a href="reserva.html">Reserve aqui</a>
+                </div>
+
+                <div class="acoes">
+                    <a href="login.html" class="botao">Entrar</a>
+                    <a href="cadastro.html" class="botao">Criar conta</a>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- BANNER PRINCIPAL -->
+        <section class="banner" id="inicio">
+
+            <div class="banner-conteudo">
+
+                <h1>
+                    Seu esporte,<br>
+                    nossa <span>energia.</span>
+                </h1>
+
+                <p class="banner-descricao">
+                    Alugue os melhores equipamentos esportivos com
+                    praticidade, qualidade e segurança.
+                </p>
+
+                <div class="banner-acoes">
+                    <a href="produtos.html" class="botao-produtos">
+                        Ver produtos
+                        <span aria-hidden="true">&rarr;</span>
+                    </a>
+
+                    <a href="como-funciona.html" class="botao-como-funciona">
+                        <span class="icone-play" aria-hidden="true"></span>
+                        Como funciona?
+                    </a>
+                </div>
+
+                <div class="banner-vantagens">
+
+                    <div class="vantagem">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M12 2 21 6v6c0 5-4 8-9 10-5-2-9-5-9-10V6z"/>
+                            <path d="m8 12 3 3 5-6"/>
+                        </svg>
+                        <span>Equipamentos<br>de qualidade</span>
+                    </div>
+
+                    <div class="vantagem">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <rect x="2" y="5" width="20" height="14" rx="2"/>
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M5 9h.01M19 15h.01"/>
+                        </svg>
+                        <span>Planos flexíveis<br>e acessíveis</span>
+                    </div>
+
+                    <div class="vantagem">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <rect x="3" y="5" width="18" height="16" rx="2"/>
+                            <path d="M16 3v4M8 3v4M3 10h18M8 14h2M14 14h2M8 17h2"/>
+                        </svg>
+                        <span>Retire ou receba<br>com facilidade</span>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- BENEFÍCIOS -->
+        <section class="beneficios" aria-label="Vantagens da FLUXO">
+
+            <article class="beneficio">
+                <svg viewBox="0 0 32 32" aria-hidden="true">
+                    <path d="M3 9h17v15H3zM20 14h5l5 5v5H20z"/>
+                    <circle cx="9" cy="25" r="3"/>
+                    <circle cx="25" cy="25" r="3"/>
+                    <path d="M7 14h8M7 18h5"/>
+                </svg>
+                <div>
+                    <h3>Entrega rápida</h3>
+                    <p>Receba onde quiser<br>com agilidade.</p>
+                </div>
+            </article>
+
+            <article class="beneficio">
+                <svg viewBox="0 0 32 32" aria-hidden="true">
+                    <path d="M16 3 27 8v8c0 7-5 11-11 14C10 27 5 23 5 16V8z"/>
+                    <path d="m11 16 4 4 7-8"/>
+                </svg>
+                <div>
+                    <h3>Seguro incluso</h3>
+                    <p>Mais tranquilidade<br>durante o uso.</p>
+                </div>
+            </article>
+
+            <article class="beneficio">
+                <svg viewBox="0 0 32 32" aria-hidden="true">
+                    <path d="M5 17v-4a11 11 0 0 1 22 0v4"/>
+                    <rect x="3" y="16" width="6" height="10" rx="2"/>
+                    <rect x="23" y="16" width="6" height="10" rx="2"/>
+                    <path d="M23 26h-7"/>
+                </svg>
+                <div>
+                    <h3>Suporte completo</h3>
+                    <p>Atendimento rápido e<br>personalizado.</p>
+                </div>
+            </article>
+
+            <article class="beneficio">
+                <svg viewBox="0 0 32 32" aria-hidden="true">
+                    <path d="M27 12a12 12 0 1 0 2 9"/>
+                    <path d="M27 4v8h-8"/>
+                </svg>
+                <div>
+                    <h3>Troca facilitada</h3>
+                    <p>Precisou de troca?<br>A gente resolve.</p>
+                </div>
+            </article>
+
+        </section>
+
+        <!-- PRODUTOS EM DESTAQUE -->
+        <section class="produtos" id="produtos">
+
+            <div class="produtos-cabecalho">
+                <h2>Produtos em <span>Destaque</span></h2>
+            </div>
+
+            <div class="produtos-lista">
+
+                <article class="produto-card">
+                    <a href="produto.html?item=raquete" class="produto-imagem">
+                        <img src="raquete.png"
+                             alt="Raquete de Beach Tennis FLUXO">
+                    </a>
+                    <div class="produto-info">
+                        <h3>Raquete de Beach Tennis</h3>
+                        <p class="produto-preco">R$ 45,00 <span>/dia</span></p>
+                        <a href="produto.html?item=raquete" class="botao-alugar">
+                            Alugar agora
+                        </a>
+                    </div>
+                </article>
+
+                <article class="produto-card">
+                    <a href="produto.html?item=bicicleta" class="produto-imagem">
+                        <img src="bicicleta.png"
+                             alt="Bicicleta MTB FLUXO">
+                    </a>
+                    <div class="produto-info">
+                        <h3>Bicicleta MTB</h3>
+                        <p class="produto-preco">R$ 75,00 <span>/dia</span></p>
+                        <a href="produto.html?item=bicicleta" class="botao-alugar">
+                            Alugar agora
+                        </a>
+                    </div>
+                </article>
+
+                <article class="produto-card">
+                    <a href="produto.html?item=sup" class="produto-imagem">
+                        <img src="stand-up-paddle.png"
+                             alt="Prancha de stand up paddle FLUXO">
+                    </a>
+                    <div class="produto-info">
+                        <h3>Stand Up Paddle</h3>
+                        <p class="produto-preco">R$ 90,00 <span>/dia</span></p>
+                        <a href="produto.html?item=sup" class="botao-alugar">
+                            Alugar agora
+                        </a>
+                    </div>
+                </article>
+
+                <article class="produto-card">
+                    <a href="produto.html?item=patins" class="produto-imagem">
+                        <img src="patins.png"
+                             alt="Patins inline FLUXO">
+                    </a>
+                    <div class="produto-info">
+                        <h3>Patins Inline</h3>
+                        <p class="produto-preco">R$ 40,00 <span>/dia</span></p>
+                        <a href="produto.html?item=patins" class="botao-alugar">
+                            Alugar agora
+                        </a>
+                    </div>
+                </article>
+
+                <article class="produto-card">
+                    <a href="produto.html?item=barraca" class="produto-imagem">
+                        <img src="barraca.png"
+                             alt="Barraca de camping FLUXO">
+                    </a>
+                    <div class="produto-info">
+                        <h3>Barraca de Camping</h3>
+                        <p class="produto-preco">R$ 60,00 <span>/dia</span></p>
+                        <a href="produto.html?item=barraca" class="botao-alugar">
+                            Alugar agora
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+                <!-- BANNER FINAL: EXPERIÊNCIA FLUXO -->
+        <section class="experiencia" id="sobre">
+
+            <div class="experiencia-conteudo">
+                <h2>
+                    Mais que aluguel,<br>
+                    uma experiência <span>completa.</span>
+                </h2>
+
+                <p>
+                    Equipamentos de qualidade, preços justos e
+                    atendimento que te acompanha em cada desafio.
+                </p>
+
+                <a
+                    href="https://wa.me/5512209872233"
+                    class="botao-whatsapp"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Fale conosco pelo WhatsApp"
+                >
+                    Fale conosco
+
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.7a8.5 8.5 0 1 1 16.3-3.8Z"/>
+                        <path d="M8.5 8.2c.3-.5.6-.5.9-.5h.4c.2 0 .4.1.5.4l.7 1.7c.1.2.1.4-.1.6l-.6.7c-.2.2-.2.4-.1.6.5.9 1.2 1.6 2.1 2.1.2.1.4.1.6-.1l.7-.8c.2-.2.4-.2.6-.1l1.7.8c.2.1.3.3.3.5 0 .3-.2 1.2-.8 1.6-.5.4-1.2.6-2 .4-1.1-.3-2.4-.9-3.7-2.1-1.1-1-1.9-2.3-2.2-3.3-.3-1 .1-2 .5-2.5Z"/>
+                    </svg>
+                </a>
+            </div>
+
+        </section>
+
+        <!-- ESTATÍSTICAS -->
+        <section class="estatisticas" aria-label="Números da FLUXO">
+
+            <article class="estatistica">
+                <svg viewBox="0 0 32 32" aria-hidden="true">
+                    <path d="M21 27v-2a7 7 0 0 0-7-7H9a7 7 0 0 0-7 7v2"/>
+                    <circle cx="11.5" cy="9" r="6"/>
+                    <path d="M22 4.5a6 6 0 0 1 0 11.5"/>
+                    <path d="M25 18a7 7 0 0 1 5 7v2"/>
+                </svg>
+
+                <div>
+                    <strong>+ 500</strong>
+                    <span>Clientes satisfeitos</span>
+                </div>
+            </article>
+
+            <article class="estatistica">
+                <svg viewBox="0 0 32 32" aria-hidden="true">
+                    <path d="m16 2 4.3 8.7 9.6 1.4-7 6.8 1.7 9.6-8.6-4.5-8.6 4.5 1.7-9.6-7-6.8 9.6-1.4Z"/>
+                </svg>
+
+                <div>
+                    <strong>4.9/5</strong>
+                    <span>Avaliação média</span>
+                </div>
+            </article>
+
+            <article class="estatistica">
+                <svg viewBox="0 0 32 32" aria-hidden="true">
+                    <rect x="3" y="8" width="26" height="20" rx="3"/>
+                    <path d="M10 8V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v3"/>
+                    <circle cx="11" cy="17" r="2"/>
+                    <circle cx="21" cy="17" r="2"/>
+                    <circle cx="16" cy="23" r="2"/>
+                </svg>
+
+                <div>
+                    <strong>+100</strong>
+                    <span>Equipamentos disponíveis</span>
+                </div>
+            </article>
+
+            <article class="estatistica">
+                <svg viewBox="0 0 32 32" aria-hidden="true">
+                    <path d="M16 28S3 20 3 11a7 7 0 0 1 13-3 7 7 0 0 1 13 3c0 9-13 17-13 17Z"/>
+                </svg>
+
+                <div>
+                    <strong>Paixão por</strong>
+                    <span>Movimentar você</span>
+                </div>
+            </article>
+
+        </section>
+    
+    </main>
+
+        <!-- RODAPÉ -->
+    <footer class="rodape">
+
+        <div class="rodape-conteudo">
+
+            <div class="rodape-marca">
+                <a href="#inicio" class="rodape-logo">
+                    <img src="logo.fluxo.png" alt="FLUXO">
+                </a>
+
+                <p>
+                    Facilitamos o seu acesso ao esporte com
+                    equipamentos de qualidade e praticidade
+                    que cabem no seu ritmo.
+                </p>
+            </div>
+
+            <div class="rodape-coluna">
+                <h3>Links rápidos</h3>
+                <a href="produtos.html">Produtos</a>
+                <a href="como-funciona.html">Como Funciona</a>
+                <a href="sobre-nos.html">Sobre nós</a>
+                <a href="login.html">Login</a>
+            </div>
+
+            <div class="rodape-coluna">
+                <h3>Contatos</h3>
+                <a href="https://wa.me/5512209872233"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    (12) 20987-2233
+                </a>
+                <a href="mailto:fluxoesporte@gmail.com">
+                    fluxoesporte@gmail.com
+                </a>
+                <span>São Paulo - SP</span>
+            </div>
+
+            <div class="rodape-coluna">
+                <h3>Ajuda</h3>
+                <a href="perguntas-frequentes.html">Perguntas frequentes</a>
+                <a href="politica-de-locacao.html">Política de locação</a>
+                <a href="termos-de-uso.html">Termos de uso</a>
+            </div>
+
+        </div>
+
+        <div class="rodape-inferior">
+            <p>© 2026 Fluxo. Todos os direitos reservados.</p>
+
+            <a
+                href="https://www.instagram.com/fluxo.esporte/?utm_source=ig_web_button_share_sheet"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram da FLUXO"
+                class="instagram-link"
+            >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <rect x="3" y="3" width="18" height="18" rx="5"/>
+                    <circle cx="12" cy="12" r="4"/>
+                    <circle cx="18" cy="6" r="1" fill="currentColor" stroke="none"/>
+                </svg>
+            </a>
+        </div>
+
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Produto | FLUXO Equipamentos Esportivos</title>
+
+    <!-- Estilos compartilhados do site -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Estilos exclusivos da página de produto -->
+    <link rel="stylesheet" href="produto.css">
+
+    <script src="script.js" defer></script>
+    <script src="conta.js" defer></script>
+    <script src="produto.js" defer></script>
+</head>
+<body>
+
+    <!-- NAVBAR: mesma estrutura do restante do site -->
+    <header class="cabecalho">
+        <nav class="navbar">
+
+            <a href="index.html#inicio" class="logo">
+                <img src="logo.fluxo.png" alt="Logo FLUXO">
+            </a>
+
+            <button class="menu-toggle"
+                    id="menu-toggle"
+                    aria-label="Abrir menu"
+                    aria-expanded="false"
+                    aria-controls="menu"
+                    type="button">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="menu" id="menu">
+                <div class="links">
+                    <a href="index.html">Início</a>
+                    <a href="produtos.html">Produtos</a>
+                    <a href="como-funciona.html">Como funciona</a>
+                    <a href="sobre-nos.html">Sobre nós</a>
+                    <a href="reserva.html">Reserve aqui</a>
+                </div>
+
+                <div class="acoes">
+                    <a href="login.html" class="botao">Entrar</a>
+                    <a href="cadastro.html" class="botao">Criar conta</a>
+                </div>
+            </div>
+
+        </nav>
+    </header>
+
+    <main class="pagina-produto">
+
+        <!-- PRODUTO NÃO ENCONTRADO -->
+        <section class="pd-vazio" id="pd-vazio" hidden>
+            <h1>Produto não encontrado</h1>
+            <p>Não encontramos o equipamento que você procura. Veja todos os produtos disponíveis para locação.</p>
+            <a href="produtos.html" class="pd-botao-simples">Ver produtos</a>
+        </section>
+
+        <div id="pd-conteudo">
+
+            <!-- TOPO: FOTOS + COMPRA -->
+            <section class="pd-topo">
+
+                <!-- FOTOS -->
+                <div class="pd-galeria">
+                    <div class="pd-foto-principal" id="pd-foto" role="img" aria-live="polite">
+                        <img id="pd-foto-img" src="" alt="">
+                    </div>
+
+                    <div class="pd-miniaturas-linha">
+                        <button type="button" class="pd-seta" id="pd-anterior" aria-label="Foto anterior">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+                        </button>
+
+                        <div class="pd-miniaturas" id="pd-miniaturas"></div>
+
+                        <button type="button" class="pd-seta" id="pd-proxima" aria-label="Próxima foto">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- INFORMAÇÕES E COMPRA -->
+                <div class="pd-info">
+
+                    <span class="pd-selo" id="pd-selo">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c1 3.5 5.5 5.5 5.5 10.2A5.5 5.5 0 0112 19a5.5 5.5 0 01-5.5-5.8C6.5 10.5 8 9.5 9 8c.5 1.4 1.2 2 2 2.2C10.6 7 11 5 12 3z"/></svg>
+                        <span id="pd-selo-texto">Mais alugado</span>
+                    </span>
+
+                    <h1 id="pd-titulo">Raquete de Beach Tennis</h1>
+
+                    <div class="pd-nota">
+                        <span class="pd-estrelas" role="img" aria-label="Nota 5 de 5">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8l2.8 5.8 6.4.9-4.6 4.4 1.1 6.3L12 17.2l-5.7 3 1.1-6.3L2.8 9.5l6.4-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8l2.8 5.8 6.4.9-4.6 4.4 1.1 6.3L12 17.2l-5.7 3 1.1-6.3L2.8 9.5l6.4-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8l2.8 5.8 6.4.9-4.6 4.4 1.1 6.3L12 17.2l-5.7 3 1.1-6.3L2.8 9.5l6.4-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8l2.8 5.8 6.4.9-4.6 4.4 1.1 6.3L12 17.2l-5.7 3 1.1-6.3L2.8 9.5l6.4-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8l2.8 5.8 6.4.9-4.6 4.4 1.1 6.3L12 17.2l-5.7 3 1.1-6.3L2.8 9.5l6.4-.9z"/></svg>
+                        </span>
+                        <strong id="pd-nota-valor">5.0</strong>
+                        <span id="pd-nota-total">(134 avaliações)</span>
+                    </div>
+
+                    <p class="pd-descricao" id="pd-descricao"></p>
+
+                    <ul class="pd-destaques" id="pd-destaques"></ul>
+
+                    <!-- ESCOLHA DO PERÍODO -->
+                    <div class="pd-aluguel">
+
+                        <div class="pd-aluguel-topo">
+                            <h2 id="pd-periodo-titulo">Escolha o período de aluguel</h2>
+                            <a href="#como-funciona" class="pd-como" id="pd-como">
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M20 12a8 8 0 01-11.6 7.1L4 20l1-4.1A8 8 0 1120 12z"/>
+                                    <path d="M9.7 9.6a2.4 2.4 0 114 1.7c-.9.7-1.7 1-1.7 2"/>
+                                    <path d="M12 16.4h.01"/>
+                                </svg>
+                                Como funciona?
+                            </a>
+                        </div>
+
+                        <div class="pd-periodos" id="pd-periodos" role="radiogroup" aria-labelledby="pd-periodo-titulo"></div>
+
+                        <div class="pd-compra">
+
+                            <div class="pd-quantidade">
+                                <span id="pd-qtd-rotulo">Quantidade</span>
+                                <div class="pd-contador" role="group" aria-labelledby="pd-qtd-rotulo">
+                                    <button type="button" id="pd-menos" aria-label="Diminuir quantidade">&minus;</button>
+                                    <output id="pd-qtd" aria-live="polite">1</output>
+                                    <button type="button" id="pd-mais" aria-label="Aumentar quantidade">+</button>
+                                </div>
+                                <small id="pd-qtd-aviso"></small>
+                            </div>
+
+                            <div class="pd-subtotal">
+                                <span>Subtotal</span>
+                                <strong id="pd-subtotal">R$45,00</strong>
+                                <small id="pd-subtotal-legenda">por dia</small>
+                            </div>
+
+                        </div>
+
+                        <button type="button" class="pd-alugar" id="pd-alugar">
+                            Alugar agora
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                        </button>
+
+                        <p class="pd-seguro">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12 3l7.5 3v5.5c0 5-3.3 8.5-7.5 10-4.2-1.5-7.5-5-7.5-10V6z"/>
+                                <path d="M9 12l2.2 2.2L15.5 9.8"/>
+                            </svg>
+                            Pagamento seguro e protegido
+                        </p>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- BENEFÍCIOS -->
+            <section class="pd-beneficios" aria-label="Benefícios">
+
+                <div class="pd-beneficio">
+                    <svg viewBox="0 0 48 48" aria-hidden="true">
+                        <path d="M4 12h24v22H4zM28 19h8l8 8v7H28z"/>
+                        <circle cx="14" cy="36" r="4"/>
+                        <circle cx="36" cy="36" r="4"/>
+                        <path d="M9 20h10M9 26h6"/>
+                    </svg>
+                    <div>
+                        <h2>Entrega rápida</h2>
+                        <p>Receba onde quiser com agilidade.</p>
+                    </div>
+                </div>
+
+                <div class="pd-beneficio">
+                    <svg viewBox="0 0 48 48" aria-hidden="true">
+                        <path d="M24 5l15 6v11c0 10-6 17-15 21C15 39 9 32 9 22V11z"/>
+                        <path d="M17 24l5 5 9-10"/>
+                    </svg>
+                    <div>
+                        <h2>Seguro incluso</h2>
+                        <p>Mais tranquilidade durante o uso.</p>
+                    </div>
+                </div>
+
+                <div class="pd-beneficio">
+                    <svg viewBox="0 0 48 48" aria-hidden="true">
+                        <path d="M9 28v-4a15 15 0 0130 0v4"/>
+                        <rect x="6" y="26" width="8" height="12" rx="3"/>
+                        <rect x="34" y="26" width="8" height="12" rx="3"/>
+                        <path d="M38 38c0 4-4 6-9 6"/>
+                    </svg>
+                    <div>
+                        <h2>Suporte completo</h2>
+                        <p>Atendimento rápido e humanizado.</p>
+                    </div>
+                </div>
+
+                <div class="pd-beneficio">
+                    <svg viewBox="0 0 48 48" aria-hidden="true">
+                        <path d="M40 24a16 16 0 11-5-11.6"/>
+                        <path d="M37 5v8h-8"/>
+                    </svg>
+                    <div>
+                        <h2>Troca facilitada</h2>
+                        <p>Trocou de ideia? A gente resolve.</p>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- DETALHES + COMO FUNCIONA -->
+            <section class="pd-detalhes-area">
+
+                <div class="pd-cartao pd-detalhes">
+                    <h2>Detalhes do produto</h2>
+                    <ul id="pd-especificacoes"></ul>
+                </div>
+
+                <div class="pd-cartao pd-funciona" id="como-funciona">
+                    <h2>Como funciona o aluguel</h2>
+
+                    <ol class="pd-passos">
+
+                        <li class="pd-passo">
+                            <svg class="pd-passo-icone" viewBox="0 0 48 48" aria-hidden="true">
+                                <rect x="7" y="9" width="34" height="32" rx="5"/>
+                                <path d="M15 4v8M33 4v8M7 19h34"/>
+                                <path d="M16 27h4M28 27h4M16 34h4M28 34h4"/>
+                            </svg>
+                            <h3><span>1</span>Escolha o período</h3>
+                            <p>Selecione o tempo de aluguel ideal para você.</p>
+                        </li>
+
+                        <li class="pd-seta-passo" aria-hidden="true">
+                            <svg viewBox="0 0 40 12"><path d="M1 6h36M32 1l5 5-5 5"/></svg>
+                        </li>
+
+                        <li class="pd-passo">
+                            <svg class="pd-passo-icone" viewBox="0 0 48 48" aria-hidden="true">
+                                <path d="M7 17l3-9h28l3 9"/>
+                                <path d="M7 17a5 5 0 0010 0 5 5 0 0010 0 5 5 0 0010 0 5 5 0 0010 0"/>
+                                <path d="M9 24v17h30V24"/>
+                                <path d="M20 41V31h8v10"/>
+                            </svg>
+                            <h3><span>2</span>Retire na loja mais próxima</h3>
+                            <p>Entregamos o equipamento no endereço desejado.</p>
+                        </li>
+
+                        <li class="pd-seta-passo" aria-hidden="true">
+                            <svg viewBox="0 0 40 12"><path d="M1 6h36M32 1l5 5-5 5"/></svg>
+                        </li>
+
+                        <li class="pd-passo">
+                            <svg class="pd-passo-icone" viewBox="0 0 48 48" aria-hidden="true">
+                                <path d="M24 41S6 31 6 18a9.5 9.5 0 0118-4.5A9.5 9.5 0 0142 18c0 13-18 23-18 23z"/>
+                            </svg>
+                            <h3><span>3</span>Use e aproveite</h3>
+                            <p>Curta seu esporte com qualidade e segurança.</p>
+                        </li>
+
+                        <li class="pd-seta-passo" aria-hidden="true">
+                            <svg viewBox="0 0 40 12"><path d="M1 6h36M32 1l5 5-5 5"/></svg>
+                        </li>
+
+                        <li class="pd-passo">
+                            <svg class="pd-passo-icone" viewBox="0 0 48 48" aria-hidden="true">
+                                <path d="M24 4l17 9v22L24 44 7 35V13z"/>
+                                <path d="M7 13l17 9 17-9M24 22v22"/>
+                                <path d="M15.5 8.5l17 9"/>
+                            </svg>
+                            <h3><span>4</span>Devolva com facilidade</h3>
+                            <p>Devolução simples e sem complicação</p>
+                        </li>
+
+                    </ol>
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+    <!-- FOOTER: mesma estrutura do site -->
+    <footer class="rodape">
+
+        <div class="rodape-conteudo">
+
+            <div class="rodape-marca">
+                <a href="index.html#inicio" class="rodape-logo">
+                    <img src="logo.fluxo.png" alt="FLUXO">
+                </a>
+
+                <p>
+                    Facilitamos o seu acesso ao esporte com
+                    equipamentos de qualidade e praticidade
+                    que cabem no seu ritmo.
+                </p>
+            </div>
+
+            <div class="rodape-coluna">
+                <h3>Links rápidos</h3>
+                <a href="produtos.html">Produtos</a>
+                <a href="como-funciona.html">Como Funciona</a>
+                <a href="index.html#sobre">Sobre nós</a>
+                <a href="login.html">Login</a>
+            </div>
+
+            <div class="rodape-coluna">
+                <h3>Contatos</h3>
+                <a href="https://wa.me/5512209872233"
+                   target="_blank"
+                   rel="noopener noreferrer">(12) 20987-2233</a>
+                <a href="mailto:fluxoesporte@gmail.com">
+                    fluxoesporte@gmail.com
+                </a>
+                <span>São Paulo - SP</span>
+            </div>
+
+            <div class="rodape-coluna">
+                <h3>Ajuda</h3>
+                <a href="perguntas-frequentes.html">Perguntas frequentes</a>
+                <a href="politica-de-locacao.html">Política de locação</a>
+                <a href="termos-de-uso.html">Termos de uso</a>
+            </div>
+
+        </div>
+
+        <div class="rodape-inferior">
+            <p>© 2026 Fluxo. Todos os direitos reservados.</p>
+
+            <a href="https://www.instagram.com/fluxo.esporte/?utm_source=ig_web_button_share_sheet"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Instagram da FLUXO"
+               class="instagram-link">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <rect x="3" y="3" width="18" height="18" rx="5"/>
+                    <circle cx="12" cy="12" r="4"/>
+                    <circle cx="18" cy="6" r="1"
+                            fill="currentColor" stroke="none"/>
+                </svg>
+            </a>
+        </div>
+
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,738 @@
+
+/* ========================================
+   FLUXO — COMO FUNCIONA
+   CSS exclusivo desta página
+======================================== */
+
+:root {
+    --fluxo-verde: #00bf72;
+    --fluxo-azul: #0755bd;
+    --fluxo-azul-escuro: #003f91;
+    --fluxo-texto: #111111;
+    --fluxo-cinza: #707070;
+    --fluxo-borda: #d7d7d7;
+    --fluxo-fundo: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-width: 320px;
+    background: var(--fluxo-fundo);
+    color: var(--fluxo-texto);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* ========================================
+   BANNER
+======================================== */
+
+.banner-como-funciona {
+    position: relative;
+    isolation: isolate;
+    min-height: 280px;
+    margin: 0;
+    padding: 40px 3.2%;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background-color: #003b66;
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(0, 37, 57, 0.98) 0%,
+            rgba(0, 35, 67, 0.88) 32%,
+            rgba(0, 45, 100, 0.30) 62%,
+            rgba(0, 30, 80, 0.03) 100%
+        ),
+        url("banner2.png");
+    background-size: cover;
+    background-position: center 54%;
+    background-repeat: no-repeat;
+}
+
+.banner-texto {
+    position: relative;
+    z-index: 1;
+    width: min(460px, 52%);
+    color: #ffffff;
+}
+
+.banner-etiqueta {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--fluxo-verde);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+}
+
+.banner-texto h1 {
+    margin: 0 0 12px;
+    font-size: clamp(30px, 3.2vw, 46px);
+    font-weight: 750;
+    line-height: 1.18;
+    letter-spacing: -0.7px;
+}
+
+.banner-texto h1 span {
+    color: var(--fluxo-verde);
+}
+
+.banner-texto p {
+    max-width: 365px;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.banner-botao {
+    display: none;
+    align-items: center;
+    gap: 10px;
+    width: fit-content;
+    margin-top: 18px;
+    padding: 11px 17px;
+    border-radius: 6px;
+    background: var(--fluxo-verde);
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.banner-botao:hover {
+    background: #009e60;
+}
+
+/* ========================================
+   ETAPAS DO ALUGUEL
+======================================== */
+
+.etapas {
+    width: 100%;
+    padding: 26px 3.2% 24px;
+    background: #ffffff;
+}
+
+.etapas > h2 {
+    margin-bottom: 22px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.linha-divisoria {
+    width: 100%;
+    height: 1px;
+    margin-bottom: 25px;
+    background: #dedede;
+}
+
+.etapas-lista {
+    display: grid;
+    grid-template-columns:
+        minmax(0, 1fr) 35px
+        minmax(0, 1fr) 35px
+        minmax(0, 1fr) 35px
+        minmax(0, 1fr) 35px
+        minmax(0, 1fr);
+    align-items: start;
+    gap: 8px;
+}
+
+.etapa {
+    min-width: 0;
+    text-align: left;
+}
+
+.etapa-icone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 62px;
+    margin-bottom: 10px;
+    color: var(--fluxo-azul);
+}
+
+.etapa-icone svg {
+    width: 49px;
+    height: 49px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.etapa-titulo {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    margin-bottom: 8px;
+}
+
+.etapa-numero {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 19px;
+    height: 19px;
+    border-radius: 50%;
+    background: var(--fluxo-verde);
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.etapa-titulo h3 {
+    padding-top: 1px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.35;
+}
+
+.etapa > p {
+    padding-left: 25px;
+    color: var(--fluxo-cinza);
+    font-size: 11px;
+    line-height: 1.45;
+}
+
+.etapa-seta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 62px;
+    padding-bottom: 0;
+}
+
+.etapa-seta svg {
+    width: 100%;
+    max-width: 42px;
+    fill: none;
+    stroke: #333333;
+    stroke-width: 1.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* ========================================
+   CARDS INFORMATIVOS
+======================================== */
+
+.informacoes {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 16px;
+    padding: 0 2% 30px;
+    background: #ffffff;
+}
+
+.info-card {
+    min-width: 0;
+    padding: 20px 20px 22px;
+    border: 1px solid var(--fluxo-borda);
+    border-radius: 7px;
+    background: #ffffff;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.10);
+}
+
+.info-icone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 54px;
+    height: 54px;
+    margin-bottom: 13px;
+    border-radius: 50%;
+    color: #ffffff;
+}
+
+.info-icone.verde {
+    background: var(--fluxo-verde);
+}
+
+.info-icone.azul {
+    background: var(--fluxo-azul);
+}
+
+.info-icone svg {
+    width: 29px;
+    height: 29px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.info-card > h3 {
+    margin-bottom: 17px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.35;
+}
+
+.lista-informacoes,
+.lista-pagamento {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    list-style: none;
+}
+
+.lista-informacoes li,
+.lista-pagamento li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.check {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 15px;
+    height: 15px;
+    margin-top: 1px;
+    border: 1.5px solid var(--fluxo-verde);
+    border-radius: 50%;
+    color: var(--fluxo-verde);
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.pagamento-numero {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 21px;
+    height: 21px;
+    margin-top: -2px;
+    border-radius: 50%;
+    background: var(--fluxo-azul);
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+/* ========================================
+   FOOTER
+======================================== */
+
+.rodape {
+    border-top: 4px solid transparent;
+    border-image: linear-gradient(
+        90deg,
+        var(--fluxo-verde),
+        var(--fluxo-azul)
+    ) 1;
+    background: #ffffff;
+}
+
+.rodape-conteudo {
+    display: grid;
+    grid-template-columns: 2fr 0.9fr 1fr 0.9fr;
+    gap: 35px;
+    padding: 28px 5% 25px;
+}
+
+.rodape-marca {
+    max-width: 320px;
+}
+
+.rodape-logo {
+    display: inline-flex;
+    margin-bottom: 12px;
+}
+
+.rodape-logo img {
+    display: block;
+    width: 155px;
+    max-height: 55px;
+    object-fit: contain;
+}
+
+.rodape-marca p {
+    max-width: 300px;
+    color: #666666;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.rodape-coluna {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 9px;
+}
+
+.rodape-coluna h3 {
+    margin-bottom: 5px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.rodape-coluna a,
+.rodape-coluna span {
+    color: #555555;
+    font-size: 11px;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+.rodape-coluna a:hover {
+    color: var(--fluxo-azul);
+}
+
+.rodape-base {
+    min-height: 43px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 8px 4%;
+    background: linear-gradient(
+        105deg,
+        #00bf72 0%,
+        #008d9a 48%,
+        #0755bd 100%
+    );
+    color: #ffffff;
+}
+
+.rodape-base p {
+    font-size: 11px;
+    line-height: 1.4;
+}
+
+.instagram {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 25px;
+    height: 25px;
+}
+
+.instagram svg {
+    width: 23px;
+    height: 23px;
+    fill: none;
+    stroke: #ffffff;
+    stroke-width: 2;
+}
+
+.instagram .ponto {
+    fill: #ffffff;
+    stroke: none;
+}
+
+/* ========================================
+   RESPONSIVIDADE
+======================================== */
+
+@media (min-width: 1500px) {
+    .banner-como-funciona {
+        min-height: 330px;
+    }
+
+    .etapas {
+        padding-top: 32px;
+    }
+
+    .etapa-titulo h3 {
+        font-size: 14px;
+    }
+
+    .etapa > p {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .navbar {
+        padding-right: 3%;
+        padding-left: 3%;
+        gap: 15px;
+    }
+
+    .logo img {
+        width: 120px;
+    }
+
+    .links {
+        gap: 20px;
+    }
+
+    .links a {
+        font-size: 13px;
+    }
+
+    .acoes {
+        gap: 8px;
+    }
+
+    .acoes .botao {
+        min-width: auto;
+        padding: 10px 12px;
+        font-size: 12px;
+    }
+
+    .etapas {
+        padding-right: 2%;
+        padding-left: 2%;
+    }
+
+    .etapas-lista {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 18px;
+    }
+
+    .etapa-seta {
+        display: none;
+    }
+
+    .etapa-titulo h3 {
+        font-size: 12px;
+    }
+
+    .etapa > p {
+        padding-left: 0;
+    }
+
+    .info-card {
+        padding: 16px;
+    }
+}
+
+@media (max-width: 800px) {
+    .navbar {
+        min-height: 66px;
+    }
+
+    .menu-toggle {
+        display: block;
+        flex-shrink: 0;
+    }
+
+    .menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        display: none;
+        align-items: stretch;
+        flex-direction: column;
+        gap: 20px;
+        padding: 22px;
+        background: #ffffff;
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.12);
+    }
+
+    .menu.ativo {
+        display: flex;
+    }
+
+    .links {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 0;
+        width: 100%;
+    }
+
+    .links a {
+        padding: 13px 5px;
+        border-bottom: 1px solid #eeeeee;
+        font-size: 15px;
+    }
+
+    .acoes {
+        width: 100%;
+    }
+
+    .acoes .botao {
+        flex: 1;
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .banner-como-funciona {
+        min-height: 270px;
+        background-position: 60% center;
+    }
+
+    .banner-texto {
+        width: 65%;
+    }
+
+    .banner-texto h1 {
+        font-size: 34px;
+    }
+
+    .etapas-lista {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 25px 18px;
+    }
+
+    .informacoes {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        padding-right: 4%;
+        padding-left: 4%;
+    }
+
+    .info-card {
+        padding: 20px;
+    }
+
+    .rodape-conteudo {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 28px;
+        padding: 25px 5%;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo img {
+        width: 120px;
+    }
+
+    .banner-como-funciona {
+        min-height: 245px;
+        padding: 28px 20px;
+        background-position: 64% center;
+    }
+
+    .banner-como-funciona::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        background: linear-gradient(
+            90deg,
+            rgba(0, 31, 52, 0.8),
+            rgba(0, 31, 52, 0.3)
+        );
+    }
+
+    .banner-texto {
+        width: 100%;
+    }
+
+    .banner-etiqueta {
+        font-size: 11px;
+    }
+
+    .banner-texto h1 {
+        font-size: 30px;
+    }
+
+    .banner-texto p {
+        max-width: 280px;
+        font-size: 13px;
+    }
+
+    .banner-botao {
+        display: inline-flex;
+        font-size: 12px;
+    }
+
+    .etapas {
+        padding: 24px 18px;
+    }
+
+    .etapas > h2 {
+        font-size: 21px;
+    }
+
+    .etapas-lista {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 25px 20px;
+    }
+
+    .etapa-icone {
+        justify-content: flex-start;
+        height: 48px;
+    }
+
+    .etapa-icone svg {
+        width: 40px;
+        height: 40px;
+    }
+
+    .etapa-titulo h3 {
+        font-size: 12px;
+    }
+
+    .etapa > p {
+        font-size: 11px;
+    }
+
+    .informacoes {
+        padding: 0 14px 25px;
+    }
+
+    .info-card {
+        padding: 17px;
+    }
+
+    .info-card > h3 {
+        font-size: 15px;
+    }
+
+    .lista-informacoes li,
+    .lista-pagamento li {
+        font-size: 12px;
+    }
+
+    .rodape-conteudo {
+        grid-template-columns: 1fr 1fr;
+        gap: 25px 18px;
+        padding: 23px 18px;
+    }
+
+    .rodape-marca {
+        grid-column: 1 / -1;
+    }
+
+    .rodape-logo img {
+        width: 135px;
+    }
+
+    .rodape-marca p {
+        font-size: 11px;
+    }
+
+    .rodape-base {
+        padding: 10px 15px;
+    }
+
+    .rodape-base p {
+        font-size: 10px;
+    }
+}
