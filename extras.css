@@ -1,0 +1,597 @@
+/* ==========================================================
+   EXTRAS FLUXO
+   Modo escuro, favoritos, estoque,
+   dúvidas e regras, calendário com datas indisponíveis.
+========================================================== */
+
+/* ---------- Botão de trocar o tema ---------- */
+
+.tema-botao {
+    order: 3;
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    display: inline-grid;
+    place-items: center;
+    padding: 0;
+    border: 1px solid #d6dce5;
+    border-radius: 50%;
+    background: #ffffff;
+    color: #004aad;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.tema-botao:hover {
+    background: #eef3fb;
+    border-color: #9db8e3;
+}
+
+.tema-botao:focus-visible {
+    outline: 2px solid #00bd70;
+    outline-offset: 3px;
+}
+
+.tema-botao svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.tema-botao .icone-sol { display: none; }
+html[data-tema="dark"] .tema-botao .icone-sol { display: block; }
+html[data-tema="dark"] .tema-botao .icone-lua { display: none; }
+
+@media (max-width: 800px) {
+    .tema-botao {
+        order: 1;
+        margin-left: auto;
+        margin-right: 6px;
+    }
+
+    .menu-toggle {
+        order: 2;
+    }
+}
+
+/* ---------- Modo escuro ----------
+   Inverte as cores da página e "desinverte" fotos, banners e
+   selos coloridos para continuarem com a aparência original. */
+
+html[data-tema="dark"] {
+    filter: invert(1) hue-rotate(180deg);
+    color-scheme: dark;
+}
+
+html[data-tema="dark"] body {
+    background: #e4e4e4; /* vira um cinza bem escuro depois da inversão */
+}
+
+html[data-tema="dark"] img,
+html[data-tema="dark"] video,
+html[data-tema="dark"] iframe,
+html[data-tema="dark"] .banner,
+html[data-tema="dark"] .banner-como-funciona,
+html[data-tema="dark"] .auth-visual,
+html[data-tema="dark"] .pg-banner,
+html[data-tema="dark"] .pf-topo,
+html[data-tema="dark"] .faq-banner,
+html[data-tema="dark"] .faq-cta,
+html[data-tema="dark"] .pl-banner,
+html[data-tema="dark"] .produtos-banner,
+html[data-tema="dark"] .reserva-banner,
+html[data-tema="dark"] .sobre-banner,
+html[data-tema="dark"] .experiencia,
+html[data-tema="dark"] .tu-banner,
+html[data-tema="dark"] .fav-btn,
+html[data-tema="dark"] .estoque-selo {
+    filter: invert(1) hue-rotate(180deg);
+}
+
+/* Imagens dentro de algo já "desinvertido" não podem ser desinvertidas de novo. */
+html[data-tema="dark"] .banner img,
+html[data-tema="dark"] .banner-como-funciona img,
+html[data-tema="dark"] .auth-visual img,
+html[data-tema="dark"] .pg-banner img,
+html[data-tema="dark"] .pf-topo img,
+html[data-tema="dark"] .faq-banner img,
+html[data-tema="dark"] .faq-cta img,
+html[data-tema="dark"] .pl-banner img,
+html[data-tema="dark"] .produtos-banner img,
+html[data-tema="dark"] .reserva-banner img,
+html[data-tema="dark"] .sobre-banner img,
+html[data-tema="dark"] .experiencia img,
+html[data-tema="dark"] .tu-banner img,
+html[data-tema="dark"] .logo img,
+html[data-tema="dark"] .rodape-logo img {
+    filter: none;
+}
+
+/* Fotos de produto ficam sobre um fundo branco, para a cor aparecer bem. */
+html[data-tema="dark"] .catalogo-imagem,
+html[data-tema="dark"] .produto-imagem,
+html[data-tema="dark"] .pd-foto-principal,
+html[data-tema="dark"] .pd-miniatura,
+html[data-tema="dark"] .pf-fav-foto {
+    background: #000000;
+}
+
+html[data-tema="dark"] .catalogo-imagem img,
+html[data-tema="dark"] .produto-imagem img,
+html[data-tema="dark"] .pd-foto-principal img,
+html[data-tema="dark"] .pd-miniatura img,
+html[data-tema="dark"] .pf-fav-foto img,
+html[data-tema="dark"] .reserva-item img {
+    background: #ffffff;
+    border-radius: 6px;
+}
+
+/* ---------- Favoritos ---------- */
+
+.catalogo-card,
+.produto-card {
+    position: relative;
+}
+
+.fav-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    z-index: 3;
+    width: 32px;
+    height: 32px;
+    display: grid;
+    place-items: center;
+    padding: 0;
+    border: 1px solid #d6dce5;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.95);
+    color: #6b7280;
+    cursor: pointer;
+    transition: transform 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.fav-btn:hover {
+    transform: scale(1.08);
+    color: #e11d48;
+    border-color: #f2a3b3;
+}
+
+.fav-btn:focus-visible {
+    outline: 2px solid #00bd70;
+    outline-offset: 2px;
+}
+
+.fav-btn svg {
+    width: 17px;
+    height: 17px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.fav-btn[aria-pressed="true"] {
+    color: #e11d48;
+    border-color: #f2a3b3;
+}
+
+.fav-btn[aria-pressed="true"] svg {
+    fill: currentColor;
+}
+
+/* Versão em texto, na página do produto. */
+.fav-btn.fav-grande {
+    position: static;
+    width: auto;
+    height: 38px;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 0 14px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 700;
+    font-family: inherit;
+}
+
+.pd-favorito-linha {
+    margin: 4px 0 12px;
+}
+
+/* ---------- Selo de estoque ---------- */
+
+.estoque-selo {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 3px 8px;
+    border-radius: 999px;
+    background: #fff4e0;
+    color: #a45a00;
+    border: 1px solid #f5d29a;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.estoque-selo.zero {
+    background: #fdeeee;
+    color: #b42318;
+    border-color: #f0b9bc;
+}
+
+/* O aviso fica abaixo do preço, dentro do bloco de informações do card. */
+.catalogo-info .estoque-selo,
+.produto-info .estoque-selo {
+    align-self: flex-start;
+    margin: 0 0 6px;
+    padding: 2px 7px;
+    font-size: 10px;
+    white-space: normal;
+}
+
+/* Aviso na página do produto */
+.pd-estoque {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 12px 0 16px;
+    padding: 9px 12px;
+    border-radius: 8px;
+    background: #fff4e0;
+    border: 1px solid #f5d29a;
+    color: #8a4b00;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.pd-estoque.zero {
+    background: #fdeeee;
+    border-color: #f0b9bc;
+    color: #b42318;
+}
+
+.pd-estoque svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+html[data-tema="dark"] .pd-estoque {
+    filter: invert(1) hue-rotate(180deg);
+}
+
+/* Selo "Disponível" da página de reserva */
+.reserva-selo.selo-baixo {
+    color: #a45a00;
+}
+
+.reserva-selo.selo-baixo i {
+    background: #f59e0b;
+}
+
+.reserva-selo.selo-zero {
+    color: #b42318;
+}
+
+.reserva-selo.selo-zero i {
+    background: #e11d48;
+}
+
+/* ---------- Dúvidas e regras (página do produto) ---------- */
+
+.pd-duvidas {
+    margin-top: 22px;
+}
+
+.pd-duvidas > h2 {
+    margin-bottom: 4px;
+    color: #004aad;
+    font-size: 20px;
+}
+
+.pd-duvidas-intro {
+    margin-bottom: 14px;
+    color: #4b5563;
+    font-size: 14px;
+}
+
+.pd-duvida {
+    border: 1px solid #d9dee7;
+    border-radius: 10px;
+    background: #ffffff;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.pd-duvida summary {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    color: #111827;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    list-style: none;
+}
+
+.pd-duvida summary::-webkit-details-marker {
+    display: none;
+}
+
+.pd-duvida summary::before {
+    content: "";
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background:
+        linear-gradient(#004aad, #004aad) center / 10px 2px no-repeat,
+        linear-gradient(#004aad, #004aad) center / 2px 10px no-repeat,
+        #eef3fb;
+    transition: transform 0.2s ease;
+}
+
+.pd-duvida[open] summary::before {
+    background:
+        linear-gradient(#004aad, #004aad) center / 10px 2px no-repeat,
+        #eef3fb;
+    transform: rotate(180deg);
+}
+
+.pd-duvida summary:focus-visible {
+    outline: 2px solid #00bd70;
+    outline-offset: -2px;
+}
+
+.pd-duvida p {
+    padding: 0 16px 16px 50px;
+    color: #374151;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.pd-duvidas-link {
+    display: inline-block;
+    margin-top: 6px;
+    color: #004aad;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+/* ---------- Calendário: dias indisponíveis ---------- */
+
+.cal-dia.indisponivel,
+.cal-dia.alem {
+    color: #b6bcc8;
+    text-decoration: line-through;
+    background: repeating-linear-gradient(
+        135deg, #f4f5f7, #f4f5f7 4px, #eceef2 4px, #eceef2 8px
+    );
+    cursor: not-allowed;
+}
+
+.cal-dia.alem {
+    text-decoration: none;
+    background: none;
+}
+
+.cal-legenda {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 10px;
+    padding-top: 9px;
+    border-top: 1px solid #e5e8ee;
+    color: #6b7280;
+    font-size: 11.5px;
+    line-height: 1.35;
+}
+
+.cal-legenda i {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+    border-radius: 3px;
+    border: 1px solid #d6dce5;
+    background: repeating-linear-gradient(
+        135deg, #f4f5f7, #f4f5f7 3px, #dfe2e8 3px, #dfe2e8 6px
+    );
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .tema-botao,
+    .fav-btn,
+    .pd-duvida summary::before {
+        transition: none;
+    }
+}
+
+/* ---------- Atalho para as dúvidas ---------- */
+
+.pd-duvidas-atalho {
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+    color: #004aad;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* ---------- Aviso: entre para favoritar ---------- */
+
+.fav-aviso {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+    background: rgba(10, 20, 40, 0.55);
+}
+
+.fav-aviso[hidden] {
+    display: none;
+}
+
+.fav-aviso-caixa {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    padding: 30px 26px 24px;
+    border-radius: 16px;
+    background: #ffffff;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.fav-aviso-fechar {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 34px;
+    height: 34px;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: #6b7280;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.fav-aviso-fechar:hover {
+    background: #f1f3f7;
+}
+
+.fav-aviso-icone {
+    width: 52px;
+    height: 52px;
+    margin: 0 auto 12px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #fdeaf0;
+    color: #e11d48;
+}
+
+.fav-aviso-icone svg {
+    width: 26px;
+    height: 26px;
+    fill: currentColor;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linejoin: round;
+}
+
+.fav-aviso-caixa h2 {
+    margin-bottom: 8px;
+    color: #111827;
+    font-size: 20px;
+}
+
+.fav-aviso-caixa p {
+    margin-bottom: 20px;
+    color: #4b5563;
+    font-size: 14px;
+    line-height: 1.55;
+}
+
+.fav-aviso-acoes {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.fav-aviso-acoes a {
+    padding: 12px 16px;
+    border-radius: 9px;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.fav-aviso-entrar {
+    background: #00bd70;
+    color: #ffffff;
+}
+
+.fav-aviso-criar {
+    border: 1px solid #004aad;
+    color: #004aad;
+}
+
+.fav-aviso-acoes a:focus-visible,
+.fav-aviso-fechar:focus-visible {
+    outline: 3px solid #004aad;
+    outline-offset: 2px;
+}
+
+
+/* ---------- Atalho de favoritos (coração) na navbar ---------- */
+
+.tema-botao.nav-fav {
+    text-decoration: none;
+    margin-left: -20px; /* fica colado ao botão de tema */
+}
+
+.tema-botao.nav-fav:hover,
+.tema-botao.nav-fav[aria-current="page"] {
+    color: #e11d48;
+    border-color: #f2a3b3;
+    background: #fff1f4;
+}
+
+.tema-botao.nav-fav[aria-current="page"] svg {
+    fill: currentColor;
+}
+
+@media (max-width: 800px) {
+    .tema-botao.nav-fav {
+        margin-left: 0;
+        margin-right: 6px;
+    }
+
+    /* O botão de tema deixa de empurrar sozinho para a direita. */
+    .tema-botao:not(.nav-fav) {
+        margin-right: 6px;
+    }
+}
+
+/* Aviso de login para alugar (cadeado): azul da marca em vez do rosa dos favoritos. */
+.fav-aviso-icone:has(rect) {
+    background: #e6efff;
+    color: #004aad;
+}
+
+.fav-aviso-icone rect,
+.fav-aviso-icone path {
+    stroke-linecap: round;
+}
+
+.fav-aviso-icone:has(rect) svg {
+    fill: none;
+}

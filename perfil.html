@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Meu perfil | FLUXO Equipamentos Esportivos</title>
+
+    <!-- Estilos compartilhados do site -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Estilos exclusivos da página de perfil -->
+    <link rel="stylesheet" href="perfil.css">
+
+    <script src="estoque.js" defer></script>
+    <script src="extras.js" defer></script>
+    <script src="conta.js" defer></script>
+    <script src="script.js" defer></script>
+    <script src="perfil.js" defer></script>
+    <!-- Extras: modo escuro, favoritos, estoque, WhatsApp -->
+    <link rel="stylesheet" href="extras.css">
+    <script src="tema.js"></script>
+</head>
+<body>
+
+    <!-- NAVBAR: mesma estrutura do restante do site -->
+    <header class="cabecalho">
+        <nav class="navbar">
+
+            <a href="index.html#inicio" class="logo">
+                <img src="logo.fluxo.png" alt="Logo FLUXO">
+            </a>
+
+            <button class="menu-toggle"
+                    id="menu-toggle"
+                    aria-label="Abrir menu"
+                    aria-expanded="false"
+                    aria-controls="menu"
+                    type="button">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="menu" id="menu">
+                <div class="links">
+                    <a href="index.html">Início</a>
+                    <a href="produtos.html">Produtos</a>
+                    <a href="como-funciona.html">Como funciona</a>
+                    <a href="sobre-nos.html">Sobre nós</a>
+                </div>
+
+                <div class="acoes">
+                    <a href="login.html" class="botao">Entrar</a>
+                    <a href="cadastro.html" class="botao">Criar conta</a>
+                </div>
+            </div>
+
+        </nav>
+    </header>
+
+    <main class="pagina-perfil" id="pf-pagina" hidden>
+
+        <!-- TOPO: avatar, nome e resumo da conta -->
+        <section class="pf-topo">
+            <div class="pf-topo-conteudo">
+                <div class="pf-avatar" id="pf-avatar" aria-hidden="true">F</div>
+
+                <div class="pf-topo-texto">
+                    <span class="pf-etiqueta">Minha conta</span>
+                    <h1 id="pf-nome-topo">Olá!</h1>
+                    <p id="pf-email-topo"></p>
+                    <span class="pf-desde" id="pf-desde"></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- NÚMEROS DA CONTA -->
+        <section class="pf-numeros" aria-label="Resumo da conta">
+            <div class="pf-numero">
+                <span class="pf-numero-icone"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2.5"/><path d="M8 3v4M16 3v4M4 10h16"/></svg></span>
+                <div><strong id="pf-n-reservas">0</strong><span>Reservas feitas</span></div>
+            </div>
+            <div class="pf-numero">
+                <span class="pf-numero-icone"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8l9-5 9 5v8l-9 5-9-5V8z"/><path d="M3 8l9 5 9-5M12 13v8"/></svg></span>
+                <div><strong id="pf-n-itens">0</strong><span>Equipamentos alugados</span></div>
+            </div>
+            <div class="pf-numero">
+                <span class="pf-numero-icone"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9.5 9.5c0-1 1.1-1.7 2.5-1.7s2.5.7 2.5 1.8-1 1.5-2.5 1.9-2.5.8-2.5 1.9 1.1 1.8 2.5 1.8 2.5-.7 2.5-1.7"/></svg></span>
+                <div><strong id="pf-n-total">R$ 0,00</strong><span>Total investido</span></div>
+            </div>
+            <a class="pf-numero pf-numero-link" href="#pf-favoritos" aria-label="Ir para meus favoritos">
+                <span class="pf-numero-icone"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5S3.5 15.3 3.5 9.2A4.7 4.7 0 0112 6.6a4.7 4.7 0 018.5 2.6c0 6.1-8.5 11.3-8.5 11.3z"/></svg></span>
+                <div><strong id="pf-n-favoritos">0</strong><span>Favoritos</span></div>
+            </a>
+        </section>
+
+        <div class="pf-grade">
+
+            <!-- COLUNA ESQUERDA: dados e segurança -->
+            <div class="pf-coluna">
+
+                <!-- DADOS PESSOAIS -->
+                <section class="pf-cartao" aria-labelledby="pf-t-dados">
+                    <header class="pf-cartao-topo">
+                        <h2 id="pf-t-dados"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg> Informações gerais</h2>
+                        <button type="button" class="pf-link" id="pf-editar">Editar</button>
+                    </header>
+
+                    <div class="pf-aviso sucesso" id="pf-aviso-dados" hidden></div>
+
+                    <form id="form-dados" novalidate>
+                        <div class="pf-campo">
+                            <label for="nome">Nome completo</label>
+                            <div class="pf-entrada"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg><input type="text" id="nome" name="nome" autocomplete="name" disabled></div>
+                            <span class="pf-erro-campo" id="erro-nome"></span>
+                        </div>
+
+                        <div class="pf-campo">
+                            <label for="email">E-mail</label>
+                            <div class="pf-entrada"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7l8.5 6 8.5-6"/></svg><input type="email" id="email" name="email" autocomplete="email" disabled readonly></div>
+                            <span class="pf-dica">O e-mail é o seu login e não pode ser alterado.</span>
+                        </div>
+
+                        <div class="pf-campo">
+                            <label for="telefone">Telefone</label>
+                            <div class="pf-entrada"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 005 5L15 12l5 2v4a2 2 0 01-2 2A15 15 0 013 5a2 2 0 012-2z"/></svg><input type="tel" id="telefone" name="telefone" inputmode="numeric" placeholder="(00) 00000-0000" autocomplete="tel" maxlength="15" disabled></div>
+                            <span class="pf-erro-campo" id="erro-telefone"></span>
+                        </div>
+
+                        <div class="pf-campo">
+                            <label for="cidade">Cidade</label>
+                            <div class="pf-entrada"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0113 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg><input type="text" id="cidade" name="cidade" placeholder="Ex.: São Paulo - SP" autocomplete="address-level2" maxlength="60" disabled></div>
+                        </div>
+
+                        <div class="pf-acoes-form" id="pf-acoes-dados" hidden>
+                            <button type="button" class="pf-botao-contorno" id="pf-cancelar-edicao">Cancelar</button>
+                            <button type="submit" class="pf-botao">Salvar alterações</button>
+                        </div>
+                    </form>
+                </section>
+
+                <!-- SEGURANÇA -->
+                <section class="pf-cartao" aria-labelledby="pf-t-senha">
+                    <header class="pf-cartao-topo">
+                        <h2 id="pf-t-senha"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg> Segurança</h2>
+                        <button type="button" class="pf-link" id="pf-abrir-senha" aria-expanded="false" aria-controls="form-senha">Alterar senha</button>
+                    </header>
+
+                    <p class="pf-texto-suave" id="pf-texto-senha">Sua senha é protegida e nunca fica salva em texto puro.</p>
+
+                    <div class="pf-aviso sucesso" id="pf-aviso-senha" hidden></div>
+
+                    <form id="form-senha" novalidate hidden>
+                        <div class="pf-campo">
+                            <label for="senha-atual">Senha atual</label>
+                            <div class="pf-entrada"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg><input type="password" id="senha-atual" autocomplete="current-password"></div>
+                            <span class="pf-erro-campo" id="erro-senha-atual"></span>
+                        </div>
+
+                        <div class="pf-campo">
+                            <label for="senha-nova">Nova senha</label>
+                            <div class="pf-entrada"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg><input type="password" id="senha-nova" autocomplete="new-password"></div>
+                            <span class="pf-erro-campo" id="erro-senha-nova"></span>
+                        </div>
+
+                        <div class="pf-campo">
+                            <label for="senha-confirmar">Confirmar nova senha</label>
+                            <div class="pf-entrada"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg><input type="password" id="senha-confirmar" autocomplete="new-password"></div>
+                            <span class="pf-erro-campo" id="erro-senha-confirmar"></span>
+                        </div>
+
+                        <div class="pf-acoes-form">
+                            <button type="button" class="pf-botao-contorno" id="pf-cancelar-senha">Cancelar</button>
+                            <button type="submit" class="pf-botao">Atualizar senha</button>
+                        </div>
+                    </form>
+                </section>
+
+                <!-- CONTA -->
+                <section class="pf-cartao pf-cartao-conta" aria-labelledby="pf-t-conta">
+                    <header class="pf-cartao-topo">
+                        <h2 id="pf-t-conta"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4h3a2 2 0 012 2v12a2 2 0 01-2 2h-3M10 8l-4 4 4 4M6 12h11"/></svg> Conta</h2>
+                    </header>
+
+                    <div class="pf-conta-acoes">
+                        <button type="button" class="pf-botao-contorno" id="pf-sair">Sair da conta</button>
+                        <button type="button" class="pf-botao-perigo" id="pf-excluir">Excluir minha conta</button>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- COLUNA DIREITA: favoritos e histórico de reservas -->
+            <div class="pf-coluna">
+
+                <!-- FAVORITOS -->
+                <section class="pf-cartao pf-favoritos" id="pf-favoritos" aria-labelledby="pf-t-fav">
+                    <header class="pf-cartao-topo">
+                        <h2 id="pf-t-fav"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5S3.5 15.3 3.5 9.2A4.7 4.7 0 0112 6.6a4.7 4.7 0 018.5 2.6c0 6.1-8.5 11.3-8.5 11.3z"/></svg> Meus favoritos</h2>
+                        <a href="produtos.html?favoritos=1" class="pf-link" id="pf-fav-todos">Ver todos</a>
+                    </header>
+
+                    <ul class="pf-fav-lista" id="pf-fav-lista"></ul>
+
+                    <div class="pf-fav-vazio" id="pf-fav-vazio" hidden>
+                        <p>Você ainda não salvou nenhum equipamento. Toque no coração dos produtos para guardá-los aqui.</p>
+                        <a href="produtos.html" class="pf-botao">Ver produtos</a>
+                    </div>
+                </section>
+
+            <!-- HISTÓRICO DE RESERVAS -->
+            <section class="pf-cartao pf-historico" aria-labelledby="pf-t-hist">
+                <header class="pf-cartao-topo">
+                    <h2 id="pf-t-hist"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2.5h8l5 5V20a1.5 1.5 0 01-1.5 1.5h-11.5A1.5 1.5 0 014.5 20V4A1.5 1.5 0 016 2.5z"/><path d="M14 2.5V8h5"/></svg> Histórico de reservas</h2>
+                    <a href="produtos.html" class="pf-link">Nova reserva</a>
+                </header>
+
+                <div class="pf-filtros" id="pf-filtros" role="tablist" aria-label="Filtrar reservas">
+                    <button type="button" role="tab" class="pf-filtro ativo" data-filtro="todas" aria-selected="true">Todas <span>0</span></button>
+                    <button type="button" role="tab" class="pf-filtro" data-filtro="agendada" aria-selected="false">Agendadas <span>0</span></button>
+                    <button type="button" role="tab" class="pf-filtro" data-filtro="andamento" aria-selected="false">Em andamento <span>0</span></button>
+                    <button type="button" role="tab" class="pf-filtro" data-filtro="concluida" aria-selected="false">Concluídas <span>0</span></button>
+                    <button type="button" role="tab" class="pf-filtro" data-filtro="cancelada" aria-selected="false">Canceladas <span>0</span></button>
+                </div>
+
+                <ul class="pf-reservas" id="pf-reservas"></ul>
+
+                <!-- Nenhuma reserva -->
+                <div class="pf-vazio" id="pf-vazio" hidden>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2.5"/><path d="M8 3v4M16 3v4M4 10h16"/></svg>
+                    <h3 id="pf-vazio-titulo">Você ainda não fez nenhuma reserva</h3>
+                    <p id="pf-vazio-texto">Escolha seus equipamentos e comece a se movimentar. Suas reservas aparecem aqui.</p>
+                    <a href="produtos.html" class="pf-botao" id="pf-vazio-botao">Ver produtos</a>
+                </div>
+            </section>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- MODAL DE CONFIRMAÇÃO -->
+    <div class="pf-modal" id="pf-modal" hidden>
+        <div class="pf-modal-caixa" role="dialog" aria-modal="true" aria-labelledby="pf-modal-titulo">
+            <h3 id="pf-modal-titulo"></h3>
+            <p id="pf-modal-texto"></p>
+
+            <div class="pf-campo" id="pf-modal-campo" hidden>
+                <label for="pf-modal-senha">Digite sua senha para confirmar</label>
+                <div class="pf-entrada"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg><input type="password" id="pf-modal-senha" autocomplete="current-password"></div>
+                <span class="pf-erro-campo" id="pf-modal-erro"></span>
+            </div>
+
+            <div class="pf-acoes-form">
+                <button type="button" class="pf-botao-contorno" id="pf-modal-voltar">Voltar</button>
+                <button type="button" class="pf-botao" id="pf-modal-confirmar">Confirmar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- AVISO RÁPIDO -->
+    <div class="pf-toast" id="pf-toast" role="status" aria-live="polite" hidden></div>
+
+    <!-- FOOTER: mesma estrutura do site -->
+    <footer class="rodape">
+
+        <div class="rodape-conteudo">
+
+            <div class="rodape-marca">
+                <a href="index.html#inicio" class="rodape-logo">
+                    <img src="logo.fluxo.png" alt="FLUXO">
+                </a>
+
+                <p>
+                    Facilitamos o seu acesso ao esporte com
+                    equipamentos de qualidade e praticidade
+                    que cabem no seu ritmo.
+                </p>
+            </div>
+
+            <div class="rodape-coluna">
+                <h3>Links rápidos</h3>
+                <a href="produtos.html">Produtos</a>
+                <a href="como-funciona.html">Como Funciona</a>
+                <a href="sobre-nos.html">Sobre nós</a>
+                <a href="login.html">Login</a>
+            </div>
+
+            <div class="rodape-coluna">
+                <h3>Contatos</h3>
+                <a href="https://wa.me/5512996831220"
+                   target="_blank"
+                   rel="noopener noreferrer">(12) 99683-1220</a>
+                <a href="mailto:fluxoesporte@gmail.com">
+                    fluxoesporte@gmail.com
+                </a>
+                <span>São Paulo - SP</span>
+            </div>
+
+            <div class="rodape-coluna">
+                <h3>Ajuda</h3>
+                <a href="perguntas-frequentes.html">Perguntas frequentes</a>
+                <a href="politica-de-locacao.html">Política de locação</a>
+                <a href="termos-de-uso.html">Termos de uso</a>
+            </div>
+
+        </div>
+
+        <div class="rodape-inferior">
+            <p>© 2026 Fluxo. Todos os direitos reservados.</p>
+
+            <a href="https://www.instagram.com/fluxo.esporte/?utm_source=ig_web_button_share_sheet"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Instagram da FLUXO"
+               class="instagram-link">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <rect x="3" y="3" width="18" height="18" rx="5"/>
+                    <circle cx="12" cy="12" r="4"/>
+                    <circle cx="18" cy="6" r="1"
+                            fill="currentColor" stroke="none"/>
+                </svg>
+            </a>
+        </div>
+
+    </footer>
+
+</body>
+</html>

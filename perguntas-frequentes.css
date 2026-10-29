@@ -1,0 +1,328 @@
+/* ==========================================
+   FLUXO - PÁGINA DE PERGUNTAS FREQUENTES
+   Os estilos da navbar e do footer ficam
+   no style.css compartilhado.
+========================================== */
+
+.pagina-faq {
+    --azul: #004aad;
+    --azul-escuro: #0a3ea8;
+    --verde: #00bd70;
+    --verde-escuro: #009e5d;
+    --verde-texto: #00d878;
+    --borda: #d9dee7;
+    --texto: #111827;
+    --texto-suave: #5b6472;
+
+    width: 100%;
+    padding-bottom: 56px;
+    color: var(--texto);
+}
+
+.pagina-faq svg {
+    flex-shrink: 0;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* ===== BANNER ===== */
+
+.faq-banner {
+    display: flex;
+    align-items: center;
+    min-height: 380px;
+    padding: 40px 8% 90px;
+    background-color: var(--azul-escuro);
+    background-image: url("banner3.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center right;
+}
+
+.faq-banner-conteudo {
+    max-width: 520px;
+    color: #ffffff;
+}
+
+.faq-banner h1 {
+    margin-bottom: 14px;
+    font-size: clamp(30px, 4.4vw, 46px);
+    line-height: 1.15;
+    font-weight: 700;
+}
+
+.faq-banner h1 span {
+    color: var(--verde-texto);
+}
+
+.faq-banner p {
+    font-size: clamp(14px, 1.7vw, 17px);
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+/* ===== BENEFÍCIOS (sobrepõem o banner) ===== */
+
+.faq-beneficios {
+    position: relative;
+    z-index: 2;
+    width: min(1200px, 100% - 34px);
+    margin: -62px auto 44px;
+    padding: 20px 10px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+    background: #ffffff;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
+
+.faq-beneficio {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 4px 14px;
+    color: var(--azul);
+}
+
+.faq-beneficio + .faq-beneficio {
+    border-left: 1px solid var(--borda);
+}
+
+.faq-beneficio svg {
+    width: 44px;
+    height: 44px;
+}
+
+.faq-beneficio h2 {
+    margin-bottom: 3px;
+    color: var(--texto);
+    font-size: 14px;
+}
+
+.faq-beneficio p {
+    color: var(--texto-suave);
+    font-size: 11px;
+    line-height: 1.4;
+}
+
+/* ===== LISTA DE PERGUNTAS ===== */
+
+.faq-lista {
+    width: min(1180px, 100% - 34px);
+    margin: 0 auto 56px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.faq-item {
+    border: 1px solid #c9ced8;
+    border-radius: 5px;
+    background: #ffffff;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+    scroll-margin-top: 90px;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.faq-item:hover {
+    border-color: #9db8e3;
+    box-shadow: 0 2px 8px rgba(0, 74, 173, 0.18);
+}
+
+.faq-item h2 {
+    font-size: inherit;
+}
+
+.faq-pergunta {
+    width: 100%;
+    padding: 12px 16px 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    border: none;
+    background: none;
+    color: var(--azul);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.4;
+    text-align: left;
+    cursor: pointer;
+}
+
+.faq-pergunta:focus-visible {
+    outline: 2px solid var(--verde);
+    outline-offset: -2px;
+    border-radius: 5px;
+}
+
+.faq-pergunta svg {
+    width: 18px;
+    height: 18px;
+    stroke-width: 2.4;
+    transition: transform 0.25s ease;
+}
+
+.faq-pergunta[aria-expanded="true"] svg {
+    transform: rotate(180deg);
+}
+
+/* Quando fechada, a pergunta ocupa o espaço normal do cartão. */
+.faq-pergunta[aria-expanded="false"] {
+    padding-bottom: 12px;
+}
+
+.faq-resposta {
+    padding: 0 16px 12px;
+}
+
+.faq-resposta[hidden] {
+    display: none;
+}
+
+.faq-resposta p {
+    max-width: 1040px;
+    color: #1f2937;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+/* ===== CHAMADA FINAL ===== */
+
+.faq-cta {
+    position: relative;
+    isolation: isolate;
+    width: min(1180px, 100% - 34px);
+    min-height: 260px;
+    margin: 0 auto;
+    padding: 36px 40px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 12px;
+    background-color: #0065b9;
+    /* Imagem de fundo do banner */
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(0, 184, 126, 0.98) 0%,
+            rgba(0, 130, 160, 0.92) 38%,
+            rgba(0, 57, 150, 0.15) 70%
+        ),
+        url("banner.png");
+    background-size: cover, cover;
+    background-position: center, center right;
+    background-repeat: no-repeat;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.faq-cta-conteudo {
+    position: relative;
+    z-index: 1;
+    max-width: 520px;
+    color: #ffffff;
+}
+
+.faq-cta h2 {
+    margin-bottom: 14px;
+    font-size: clamp(26px, 3.2vw, 36px);
+    line-height: 1.25;
+    font-weight: 700;
+}
+
+.faq-cta h2 span {
+    color: var(--verde-texto);
+}
+
+.faq-cta p {
+    margin-bottom: 20px;
+    font-size: clamp(13px, 1.5vw, 15px);
+    line-height: 1.45;
+}
+
+.faq-cta-botao {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 10px 26px;
+    border-radius: 5px;
+    background: var(--verde);
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.faq-cta-botao:hover {
+    background: var(--verde-escuro);
+    transform: translateY(-2px);
+}
+
+/* ===== RESPONSIVO ===== */
+
+@media (max-width: 760px) {
+    .faq-banner {
+        min-height: 340px;
+        padding: 32px 22px 90px;
+        background-image:
+            linear-gradient(90deg, rgba(0, 25, 90, 0.85), rgba(0, 25, 90, 0.4)),
+            url("banner.png");
+        background-position: center, 78% center;
+        background-size: auto, cover;
+    }
+
+    .faq-beneficios {
+        grid-template-columns: 1fr 1fr;
+        gap: 18px 0;
+    }
+
+    .faq-beneficio:nth-child(3) {
+        border-left: none;
+    }
+
+    .faq-cta {
+        padding: 30px 22px;
+        background-image:
+            linear-gradient(
+                90deg,
+                rgba(0, 184, 126, 0.95) 0%,
+                rgba(0, 100, 190, 0.85) 100%
+            ),
+                url("banner.png");
+    }
+}
+
+@media (max-width: 560px) {
+    .faq-beneficios {
+        grid-template-columns: 1fr;
+    }
+
+    .faq-beneficio {
+        justify-content: flex-start;
+        padding: 0 10px;
+    }
+
+    .faq-beneficio + .faq-beneficio {
+        border-left: none;
+    }
+
+    .faq-cta h2 br,
+    .faq-cta p br {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .faq-pergunta svg,
+    .faq-item {
+        transition: none;
+    }
+}

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Perguntas Frequentes | FLUXO Equipamentos Esportivos</title>
+
+    <!-- Estilos compartilhados do site -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Estilos exclusivos da página de perguntas frequentes -->
+    <link rel="stylesheet" href="perguntas-frequentes.css">
+
+    <script src="estoque.js" defer></script>
+    <script src="extras.js" defer></script>
+    <script src="conta.js" defer></script>
+    <script src="script.js" defer></script>
+    <script src="perguntas-frequentes.js" defer></script>
+    <!-- Extras: modo escuro, favoritos, estoque, WhatsApp -->
+    <link rel="stylesheet" href="extras.css">
+    <script src="tema.js"></script>
+</head>
+<body>
+
+    <!-- NAVBAR: mesma estrutura do restante do site -->
+    <header class="cabecalho">
+        <nav class="navbar">
+
+            <a href="index.html#inicio" class="logo">
+                <img src="logo.fluxo.png" alt="Logo FLUXO">
+            </a>
+
+            <button class="menu-toggle"
+                    id="menu-toggle"
+                    aria-label="Abrir menu"
+                    aria-expanded="false"
+                    aria-controls="menu"
+                    type="button">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="menu" id="menu">
+                <div class="links">
+                    <a href="index.html">Início</a>
+                    <a href="produtos.html">Produtos</a>
+                    <a href="como-funciona.html">Como funciona</a>
+                    <a href="sobre-nos.html">Sobre nós</a>
+                </div>
+
+                <div class="acoes">
+                    <a href="login.html" class="botao">Entrar</a>
+                    <a href="cadastro.html" class="botao">Criar conta</a>
+                </div>
+            </div>
+
+        </nav>
+    </header>
+
+    <main class="pagina-faq">
+
+        <!-- BANNER -->
+        <section class="faq-banner">
+            <div class="faq-banner-conteudo">
+                <h1>
+                    Perguntas<br>
+                    <span>Frequentes</span>
+                </h1>
+                <p>
+                    Tire suas dúvidas sobre aluguel,<br>
+                    produtos e muito mais.
+                </p>
+            </div>
+        </section>
+
+        <!-- BENEFÍCIOS -->
+        <section class="faq-beneficios" aria-label="Benefícios">
+
+            <div class="faq-beneficio">
+                <svg viewBox="0 0 48 48" aria-hidden="true">
+                    <path d="M4 12h24v22H4zM28 19h8l8 8v7H28z"/>
+                    <circle cx="14" cy="36" r="4"/>
+                    <circle cx="36" cy="36" r="4"/>
+                </svg>
+                <div>
+                    <h2>Entrega rápida</h2>
+                    <p>Receba onde quiser com agilidade.</p>
+                </div>
+            </div>
+
+            <div class="faq-beneficio">
+                <svg viewBox="0 0 48 48" aria-hidden="true">
+                    <path d="M24 5l15 6v11c0 10-6 17-15 21C15 39 9 32 9 22V11z"/>
+                    <path d="M17 24l5 5 9-10"/>
+                </svg>
+                <div>
+                    <h2>Seguro incluso</h2>
+                    <p>Mais tranquilidade durante o uso.</p>
+                </div>
+            </div>
+
+            <div class="faq-beneficio">
+                <svg viewBox="0 0 48 48" aria-hidden="true">
+                    <path d="M9 28v-4a15 15 0 0130 0v4"/>
+                    <rect x="6" y="26" width="8" height="12" rx="3"/>
+                    <rect x="34" y="26" width="8" height="12" rx="3"/>
+                    <path d="M38 38c0 4-4 6-9 6"/>
+                </svg>
+                <div>
+                    <h2>Suporte completo</h2>
+                    <p>Atendimento rápido e humanizado.</p>
+                </div>
+            </div>
+
+            <div class="faq-beneficio">
+                <svg viewBox="0 0 48 48" aria-hidden="true">
+                    <path d="M40 24a16 16 0 11-5-11.6"/>
+                    <path d="M37 5v8h-8"/>
+                </svg>
+                <div>
+                    <h2>Troca facilitada</h2>
+                    <p>Trocou de ideia? A gente resolve.</p>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- PERGUNTAS -->
+        <section class="faq-lista" id="perguntas" aria-label="Perguntas frequentes">
+
+            <article class="faq-item" id="como-funciona-aluguel">
+                <h2>
+                    <button type="button" class="faq-pergunta"
+                            aria-expanded="true" aria-controls="resposta-1" id="pergunta-1">
+                        <span>Como funciona o aluguel de produtos ?</span>
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                </h2>
+                <div class="faq-resposta" id="resposta-1" role="region" aria-labelledby="pergunta-1">
+                    <p>
+                        Você pode navegar no nosso site em busca da melhor opção,
+                        selecione o produto desejado, preencha as datas da reserva
+                        e realize o pagamento. Quando o pagamento for confirmado,
+                        seu equipamento já foi reservado!!
+                    </p>
+                </div>
+            </article>
+
+            <article class="faq-item" id="formas-de-pagamento">
+                <h2>
+                    <button type="button" class="faq-pergunta"
+                            aria-expanded="true" aria-controls="resposta-2" id="pergunta-2">
+                        <span>Quais as formas de pagamento?</span>
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                </h2>
+                <div class="faq-resposta" id="resposta-2" role="region" aria-labelledby="pergunta-2">
+                    <p>
+                        As formas de pagamento que operamos em nossa empresa são:
+                        Cartão de crédito, pix e boleto bancário.
+                    </p>
+                </div>
+            </article>
+
+            <article class="faq-item" id="prazo-de-retirada">
+                <h2>
+                    <button type="button" class="faq-pergunta"
+                            aria-expanded="true" aria-controls="resposta-3" id="pergunta-3">
+                        <span>Qual é o prazo para retirar dos produtos ?</span>
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                </h2>
+                <div class="faq-resposta" id="resposta-3" role="region" aria-labelledby="pergunta-3">
+                    <p>
+                        O prazo de retirada do produto será tolerado até 2 dias
+                        após a reserva.
+                    </p>
+                </div>
+            </article>
+
+            <article class="faq-item" id="produtos-novos">
+                <h2>
+                    <button type="button" class="faq-pergunta"
+                            aria-expanded="true" aria-controls="resposta-4" id="pergunta-4">
+                        <span>Os produtos são novos?</span>
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                </h2>
+                <div class="faq-resposta" id="resposta-4" role="region" aria-labelledby="pergunta-4">
+                    <p>
+                        Sim, todos os equipamentos da Fluxo são novos e de ótima
+                        qualidade.
+                    </p>
+                </div>
+            </article>
+
+            <article class="faq-item" id="danos-ao-equipamento">
+                <h2>
+                    <button type="button" class="faq-pergunta"
+                            aria-expanded="true" aria-controls="resposta-5" id="pergunta-5">
+                        <span>O que acontece em caso de danos ao equipamento?</span>
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                </h2>
+                <div class="faq-resposta" id="resposta-5" role="region" aria-labelledby="pergunta-5">
+                    <p>
+                        Os danos do equipamento durante o período de locação são de
+                        total responsabilidade do usuário, então em caso de danos
+                        será cobrada uma taxa ao usuário.
+                    </p>
+                </div>
+            </article>
+
+            <article class="faq-item" id="higienizacao">
+                <h2>
+                    <button type="button" class="faq-pergunta"
+                            aria-expanded="true" aria-controls="resposta-6" id="pergunta-6">
+                        <span>Vocês realizam uma higienização nos equipamentos?</span>
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                </h2>
+                <div class="faq-resposta" id="resposta-6" role="region" aria-labelledby="pergunta-6">
+                    <p>
+                        Sim, após a devolução do produto a empresa higieniza
+                        completamente o equipamento para a próxima locação.
+                    </p>
+                </div>
+            </article>
+
+        </section>
+
+        <!-- CHAMADA FINAL -->
+        <section class="faq-cta" aria-labelledby="faq-cta-titulo">
+            <div class="faq-cta-conteudo">
+                <h2 id="faq-cta-titulo">
+                    Pronto para viver a sua<br>
+                    melhor <span>experiência?</span>
+                </h2>
+                <p>
+                    Aluge agora e aproveite o melhor do esporte<br>
+                    com praticidade e qualidade.
+                </p>
+                <a href="produtos.html" class="faq-cta-botao">Ver produtos</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER: mesma estrutura do site -->
+    <footer class="rodape">
+
+        <div class="rodape-conteudo">
+
+            <div class="rodape-marca">
+                <a href="index.html#inicio" class="rodape-logo">
+                    <img src="logo.fluxo.png" alt="FLUXO">
+                </a>
+
+                <p>
+                    Facilitamos o seu acesso ao esporte com
+                    equipamentos de qualidade e praticidade
+                    que cabem no seu ritmo.
+                </p>
+            </div>
+
+            <div class="rodape-coluna">
+                <h3>Links rápidos</h3>
+                <a href="produtos.html">Produtos</a>
+                <a href="como-funciona.html">Como Funciona</a>
+                <a href="sobre-nos.html">Sobre nós</a>
+                <a href="login.html">Login</a>
+            </div>
+
+            <div class="rodape-coluna">
+                <h3>Contatos</h3>
+                <a href="https://wa.me/5512996831220"
+                   target="_blank"
+                   rel="noopener noreferrer">(12) 99683-1220</a>
+                <a href="mailto:fluxoesporte@gmail.com">
+                    fluxoesporte@gmail.com
+                </a>
+                <span>São Paulo - SP</span>
+            </div>
+
+            <div class="rodape-coluna">
+                <h3>Ajuda</h3>
+                <a href="perguntas-frequentes.html">Perguntas frequentes</a>
+                <a href="politica-de-locacao.html">Política de locação</a>
+                <a href="termos-de-uso.html">Termos de uso</a>
+            </div>
+
+        </div>
+
+        <div class="rodape-inferior">
+            <p>© 2026 Fluxo. Todos os direitos reservados.</p>
+
+            <a href="https://www.instagram.com/fluxo.esporte/?utm_source=ig_web_button_share_sheet"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Instagram da FLUXO"
+               class="instagram-link">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <rect x="3" y="3" width="18" height="18" rx="5"/>
+                    <circle cx="12" cy="12" r="4"/>
+                    <circle cx="18" cy="6" r="1"
+                            fill="currentColor" stroke="none"/>
+                </svg>
+            </a>
+        </div>
+
+    </footer>
+
+</body>
+</html>

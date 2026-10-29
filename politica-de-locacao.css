@@ -1,0 +1,235 @@
+/* ==========================================
+   FLUXO - PÁGINA DE POLÍTICAS DE LOCAÇÃO
+   Mesmo estilo da página de perguntas
+   frequentes. Navbar e footer ficam no
+   style.css compartilhado.
+========================================== */
+
+.pagina-politicas {
+    --azul: #004aad;
+    --azul-escuro: #0a3ea8;
+    --verde: #00bd70;
+    --verde-texto: #00d878;
+    --borda: #d9dee7;
+    --texto: #111827;
+    --texto-suave: #5b6472;
+
+    width: 100%;
+    padding-bottom: 56px;
+    color: var(--texto);
+}
+
+.pagina-politicas svg {
+    flex-shrink: 0;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* ===== BANNER ===== */
+
+.pl-banner {
+    display: flex;
+    align-items: center;
+    min-height: 380px;
+    padding: 40px 8% 90px;
+    background-color: var(--azul-escuro);
+    background-image: url("banner.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center right;
+}
+
+.pl-banner-conteudo {
+    max-width: 520px;
+    color: #ffffff;
+}
+
+.pl-banner h1 {
+    margin-bottom: 14px;
+    font-size: clamp(30px, 4.4vw, 46px);
+    line-height: 1.15;
+    font-weight: 700;
+}
+
+.pl-banner h1 span {
+    color: var(--verde-texto);
+}
+
+.pl-banner p {
+    font-size: clamp(14px, 1.7vw, 17px);
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+/* ===== BENEFÍCIOS (sobrepõem o banner) ===== */
+
+.pl-beneficios {
+    position: relative;
+    z-index: 2;
+    width: min(1200px, 100% - 34px);
+    margin: -62px auto 44px;
+    padding: 20px 10px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+    background: #ffffff;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
+
+.pl-beneficio {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 4px 14px;
+    color: var(--azul);
+}
+
+.pl-beneficio + .pl-beneficio {
+    border-left: 1px solid var(--borda);
+}
+
+.pl-beneficio svg {
+    width: 44px;
+    height: 44px;
+}
+
+.pl-beneficio h2 {
+    margin-bottom: 3px;
+    color: var(--texto);
+    font-size: 14px;
+}
+
+.pl-beneficio p {
+    color: var(--texto-suave);
+    font-size: 11px;
+    line-height: 1.4;
+}
+
+/* ===== TEXTO INTRODUTÓRIO ===== */
+
+.pl-intro {
+    width: min(1180px, 100% - 34px);
+    margin: 0 auto 22px;
+}
+
+.pl-intro h2 {
+    margin-bottom: 8px;
+    color: var(--azul);
+    font-size: clamp(22px, 3vw, 28px);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.pl-intro p {
+    max-width: 760px;
+    color: #1f2937;
+    font-size: 14px;
+    line-height: 1.55;
+}
+
+/* ===== POLÍTICAS (cartões como os das perguntas) ===== */
+
+.pl-termos {
+    width: min(1180px, 100% - 34px);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(4, auto);
+    grid-auto-flow: column;
+    gap: 14px 18px;
+}
+
+.pl-termo {
+    padding: 14px 18px 16px;
+    border: 1px solid #c9ced8;
+    border-radius: 5px;
+    background: #ffffff;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+    scroll-margin-top: 90px;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease,
+                background 0.3s ease;
+}
+
+.pl-termo:hover {
+    border-color: #9db8e3;
+    box-shadow: 0 2px 8px rgba(0, 74, 173, 0.18);
+}
+
+.pl-termo h3 {
+    margin-bottom: 6px;
+    color: var(--azul);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.pl-termo p {
+    color: #1f2937;
+    font-size: 12px;
+    line-height: 1.55;
+}
+
+/* Destaque quando a pessoa chega por um link direto (#cancelamento etc.). */
+.pl-termo.destaque {
+    border-color: var(--azul);
+    background: #eef5ff;
+}
+
+/* ===== RESPONSIVO ===== */
+
+@media (max-width: 760px) {
+    .pl-banner {
+        min-height: 340px;
+        padding: 32px 22px 90px;
+        background-image:
+            linear-gradient(90deg, rgba(0, 25, 90, 0.85), rgba(0, 25, 90, 0.4)),
+            url("banner.png");
+        background-position: center, 78% center;
+        background-size: auto, cover;
+    }
+
+    .pl-beneficios {
+        grid-template-columns: 1fr 1fr;
+        gap: 18px 0;
+    }
+
+    .pl-beneficio:nth-child(3) {
+        border-left: none;
+    }
+
+    .pl-termos {
+        grid-template-columns: 1fr;
+        grid-template-rows: none;
+        grid-auto-flow: row;
+    }
+}
+
+@media (max-width: 560px) {
+    .pl-beneficios {
+        grid-template-columns: 1fr;
+    }
+
+    .pl-beneficio {
+        justify-content: flex-start;
+        padding: 0 10px;
+    }
+
+    .pl-beneficio + .pl-beneficio {
+        border-left: none;
+    }
+
+    .pl-banner p br {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .pl-termo {
+        transition: none;
+    }
+}

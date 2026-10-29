@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Políticas de locação | FLUXO Equipamentos Esportivos</title>
+
+    <!-- Estilos compartilhados do site -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Estilos exclusivos da página de políticas de locação -->
+    <link rel="stylesheet" href="politica-de-locacao.css">
+
+    <script src="estoque.js" defer></script>
+    <script src="extras.js" defer></script>
+    <script src="conta.js" defer></script>
+    <script src="script.js" defer></script>
+    <script src="politica-de-locacao.js" defer></script>
+    <!-- Extras: modo escuro, favoritos, estoque, WhatsApp -->
+    <link rel="stylesheet" href="extras.css">
+    <script src="tema.js"></script>
+</head>
+<body>
+
+    <!-- NAVBAR: mesma estrutura do restante do site -->
+    <header class="cabecalho">
+        <nav class="navbar">
+
+            <a href="index.html#inicio" class="logo">
+                <img src="logo.fluxo.png" alt="Logo FLUXO">
+            </a>
+
+            <button class="menu-toggle"
+                    id="menu-toggle"
+                    aria-label="Abrir menu"
+                    aria-expanded="false"
+                    aria-controls="menu"
+                    type="button">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="menu" id="menu">
+                <div class="links">
+                    <a href="index.html">Início</a>
+                    <a href="produtos.html">Produtos</a>
+                    <a href="como-funciona.html">Como funciona</a>
+                    <a href="sobre-nos.html">Sobre nós</a>
+                </div>
+
+                <div class="acoes">
+                    <a href="login.html" class="botao">Entrar</a>
+                    <a href="cadastro.html" class="botao">Criar conta</a>
+                </div>
+            </div>
+
+        </nav>
+    </header>
+
+    <main class="pagina-politicas">
+
+        <!-- BANNER -->
+        <section class="pl-banner">
+            <div class="pl-banner-conteudo">
+                <h1>
+                    Políticas de locação<br>
+                    transparência em<br>
+                    <span>cada detalhe.</span>
+                </h1>
+                <p>
+                    Leia nossas políticas para ter uma experiência<br>
+                    segura, prática e sem preocupações.
+                </p>
+            </div>
+        </section>
+
+        <!-- BENEFÍCIOS -->
+        <section class="pl-beneficios" aria-label="Benefícios">
+
+            <div class="pl-beneficio">
+                <svg viewBox="0 0 48 48" aria-hidden="true">
+                    <path d="M24 5l15 6v11c0 10-6 17-15 21C15 39 9 32 9 22V11z"/>
+                    <path d="M17 24l5 5 9-10"/>
+                </svg>
+                <div>
+                    <h2>Equipamentos de qualidade</h2>
+                    <p>Novos e em ótimo estado.</p>
+                </div>
+            </div>
+
+            <div class="pl-beneficio">
+                <svg viewBox="0 0 48 48" aria-hidden="true">
+                    <rect x="9" y="8" width="30" height="35" rx="4"/>
+                    <path d="M18 5h12v7H18z"/>
+                    <path d="M16 26l5 5 11-12"/>
+                </svg>
+                <div>
+                    <h2>Planos flexíveis e acessíveis</h2>
+                    <p>Escolha o que cabe no seu ritmo.</p>
+                </div>
+            </div>
+
+            <div class="pl-beneficio">
+                <svg viewBox="0 0 48 48" aria-hidden="true">
+                    <path d="M9 28v-4a15 15 0 0130 0v4"/>
+                    <rect x="6" y="26" width="8" height="12" rx="3"/>
+                    <rect x="34" y="26" width="8" height="12" rx="3"/>
+                    <path d="M38 38c0 4-4 6-9 6"/>
+                </svg>
+                <div>
+                    <h2>Suporte completo</h2>
+                    <p>Atendimento durante a locação.</p>
+                </div>
+            </div>
+
+            <div class="pl-beneficio">
+                <svg viewBox="0 0 48 48" aria-hidden="true">
+                    <path d="M4 12h24v22H4zM28 19h8l8 8v7H28z"/>
+                    <circle cx="14" cy="36" r="4"/>
+                    <circle cx="36" cy="36" r="4"/>
+                </svg>
+                <div>
+                    <h2>Receba com facilidade</h2>
+                    <p>Entrega e retirada sem complicação.</p>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- TEXTO INTRODUTÓRIO -->
+        <section class="pl-intro" aria-labelledby="pl-titulo">
+            <h2 id="pl-titulo">Políticas de Locação</h2>
+            <p>
+                Para garantir uma experiência segura, justa e transparente
+                para todos, confira nossas políticas e regras para locação
+                de equipamentos Fluxo.
+            </p>
+        </section>
+
+        <!-- POLÍTICAS -->
+        <section class="pl-termos" aria-label="Políticas de locação">
+
+            <article class="pl-termo" id="periodo-de-locacao">
+                <h3>1. Período de locação</h3>
+                <p>
+                    O período de locação começa a contar a partir da data e horário escolhidos no momento da retirada do equipamento e termina na data e horário definidos no contrato.
+                </p>
+            </article>
+
+            <article class="pl-termo" id="reserva-e-pagamento">
+                <h3>2. Reserva e pagamento</h3>
+                <p>
+                    A reserva é confirmada apenas após a aprovação do pagamento. O pagamento garante a disponibilidade do equipamento no período escolhido.
+                </p>
+            </article>
+
+            <article class="pl-termo" id="uso-responsavel">
+                <h3>3. Uso responsável</h3>
+                <p>
+                    Os equipamentos devem ser utilizados de forma adequada e responsável, seguindo as recomendações do fabricante e as orientações da Fluxo.
+                </p>
+            </article>
+
+            <article class="pl-termo" id="conservacao-e-cuidados">
+                <h3>4. Conservação e cuidados</h3>
+                <p>
+                    O locatário deve zelar pelo equipamento, mantendo-o limpo e em boas condições. Danos por mau uso, perda ou extravio serão de responsabilidade do locatário.
+                </p>
+            </article>
+
+            <article class="pl-termo" id="atrasos-e-prorrogacoes">
+                <h3>5. Atrasos e prorrogações</h3>
+                <p>
+                    Atrasos na devolução estarão sujeitos à cobrança de multa diária, conforme previsto no contrato da locação. Para prorrogar o período, entre em contato conosco com antecedência.
+                </p>
+            </article>
+
+            <article class="pl-termo" id="devolucao">
+                <h3>6. Devolução</h3>
+                <p>
+                    O equipamento deve ser devolvido na data, horário e local combinados. Após a devolução, faremos uma avaliação para verificar as condições do item.
+                </p>
+            </article>
+
+            <article class="pl-termo" id="cancelamento">
+                <h3>7. Cancelamento</h3>
+                <p>
+                    Cancelamentos podem ser realizados com até 48h de antecedência do início da locação, com reembolso conforme nossa política de cancelamento.
+                </p>
+            </article>
+
+            <article class="pl-termo" id="alteracoes">
+                <h3>8. Alterações nas políticas</h3>
+                <p>
+                    A Fluxo pode atualizar estas políticas a qualquer momento. As mudanças serão comunicadas em nosso site e passam a valer a partir da data de publicação.
+                </p>
+            </article>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER: mesma estrutura do site -->
+    <footer class="rodape">
+
+        <div class="rodape-conteudo">
+
+            <div class="rodape-marca">
+                <a href="index.html#inicio" class="rodape-logo">
+                    <img src="logo.fluxo.png" alt="FLUXO">
+                </a>
+
+                <p>
+                    Facilitamos o seu acesso ao esporte com
+                    equipamentos de qualidade e praticidade
+                    que cabem no seu ritmo.
+                </p>
+            </div>
+
+            <div class="rodape-coluna">
+                <h3>Links rápidos</h3>
+                <a href="produtos.html">Produtos</a>
+                <a href="como-funciona.html">Como Funciona</a>
+                <a href="sobre-nos.html">Sobre nós</a>
+                <a href="login.html">Login</a>
+            </div>
+
+            <div class="rodape-coluna">
+                <h3>Contatos</h3>
+                <a href="https://wa.me/5512996831220"
+                   target="_blank"
+                   rel="noopener noreferrer">(12) 99683-1220</a>
+                <a href="mailto:fluxoesporte@gmail.com">
+                    fluxoesporte@gmail.com
+                </a>
+                <span>São Paulo - SP</span>
+            </div>
+
+            <div class="rodape-coluna">
+                <h3>Ajuda</h3>
+                <a href="perguntas-frequentes.html">Perguntas frequentes</a>
+                <a href="politica-de-locacao.html">Política de locação</a>
+                <a href="termos-de-uso.html">Termos de uso</a>
+            </div>
+
+        </div>
+
+        <div class="rodape-inferior">
+            <p>© 2026 Fluxo. Todos os direitos reservados.</p>
+
+            <a href="https://www.instagram.com/fluxo.esporte/?utm_source=ig_web_button_share_sheet"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Instagram da FLUXO"
+               class="instagram-link">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <rect x="3" y="3" width="18" height="18" rx="5"/>
+                    <circle cx="12" cy="12" r="4"/>
+                    <circle cx="18" cy="6" r="1"
+                            fill="currentColor" stroke="none"/>
+                </svg>
+            </a>
+        </div>
+
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Reservas | FLUXO Equipamentos Esportivos</title>
+
+    <!-- Estilos compartilhados do site -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Estilos exclusivos da página de reserva -->
+    <link rel="stylesheet" href="reserva.css">
+
+    <script src="estoque.js" defer></script>
+    <script src="extras.js" defer></script>
+    <script src="conta.js" defer></script>
+    <script src="script.js" defer></script>
+    <script src="reserva.js" defer></script>
+    <!-- Extras: modo escuro, favoritos, estoque, WhatsApp -->
+    <link rel="stylesheet" href="extras.css">
+    <script src="tema.js"></script>
+</head>
+<body>
+
+    <!-- NAVBAR: mesma estrutura do index.html -->
+    <header class="cabecalho">
+        <nav class="navbar">
+
+            <a href="index.html#inicio" class="logo">
+                <img src="logo.fluxo.png" alt="Logo FLUXO">
+            </a>
+
+            <button class="menu-toggle"
+                    id="menu-toggle"
+                    aria-label="Abrir menu"
+                    aria-expanded="false"
+                    aria-controls="menu"
+                    type="button">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="menu" id="menu">
+                <div class="links">
+                    <a href="index.html">Início</a>
+                    <a href="produtos.html">Produtos</a>
+                    <a href="como-funciona.html">Como funciona</a>
+                    <a href="sobre-nos.html">Sobre nós</a>
+                </div>
+
+                <div class="acoes">
+                    <a href="login.html" class="botao">Entrar</a>
+                    <a href="cadastro.html" class="botao">Criar conta</a>
+                </div>
+            </div>
+
+        </nav>
+    </header>
+
+    <main class="pagina-reserva">
+
+        <!-- BANNER -->
+        <section class="reserva-banner">
+            <div class="reserva-banner-conteudo">
+                <h1>Reservas</h1>
+                <p class="reserva-banner-destaque">
+                    Reserve seus equipamentos de forma
+                    <strong>rápida</strong> e <strong>segura</strong>.
+                </p>
+                <p class="reserva-banner-texto">
+                    Escolha seus itens, selecione as datas e
+                    receba no conforto da sua casa.
+                </p>
+            </div>
+        </section>
+
+        <!-- PASSOS -->
+        <section class="reserva-passos" aria-label="Etapas da reserva">
+
+            <div class="reserva-passo">
+                <svg viewBox="0 0 48 48" aria-hidden="true">
+                    <rect x="7" y="9" width="34" height="32" rx="5"/>
+                    <path d="M15 4v8M33 4v8M7 19h34"/>
+                    <path d="M16 27h4M28 27h4M16 34h4M28 34h4"/>
+                </svg>
+                <div>
+                    <h2>1. Escolha</h2>
+                    <p>Selecione os equipamentos que você deseja reservar.</p>
+                </div>
+            </div>
+
+            <div class="reserva-passo">
+                <svg viewBox="0 0 48 48" aria-hidden="true">
+                    <rect x="7" y="9" width="34" height="32" rx="5"/>
+                    <path d="M15 4v8M33 4v8M7 19h34"/>
+                    <path d="M17 30l5 5 9-10"/>
+                </svg>
+                <div>
+                    <h2>2. Data</h2>
+                    <p>Defina o período de retirada e devolução dos itens.</p>
+                </div>
+            </div>
+
+            <div class="reserva-passo">
+                <svg viewBox="0 0 48 48" aria-hidden="true">
+                    <path d="M24 5l15 6v11c0 10-6 17-15 21C15 39 9 32 9 22V11z"/>
+                    <path d="M17 24l5 5 9-10"/>
+                </svg>
+                <div>
+                    <h2>3. Confirmação</h2>
+                    <p>Revise sua reserva e finalize. Rápido e seguro!</p>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ESCOLHA + DATAS -->
+        <section class="reserva-area">
+
+            <!-- EQUIPAMENTOS -->
+            <div class="reserva-cartao reserva-equipamentos">
+
+                <div class="reserva-cartao-topo">
+                    <h2>Escolha seus equipamentos</h2>
+                    <span class="reserva-disponiveis">16 itens disponíveis</span>
+                </div>
+
+                <div class="reserva-grade" id="reserva-grade">
+
+                    <!-- BICICLETA -->
+                    <article class="reserva-item" data-id="bicicleta" data-nome="Bicicleta MTB" data-preco="75">
+                        <span class="reserva-selo"><i aria-hidden="true"></i>Disponível</span>
+                        <input type="checkbox" class="reserva-check" id="item-bicicleta" aria-label="Selecionar Bicicleta MTB">
+                        <img src="bicicleta.png" alt="Bicicleta MTB FLUXO" loading="lazy">
+                        <h3>Bicicleta MTB</h3>
+                        <p class="reserva-item-preco">A partir de R$75,00 /dia</p>
+                        <a href="produto.html?item=bicicleta" class="reserva-item-link">Ver mais detalhes</a>
+                    </article>
+
+                    <!-- PATINS -->
+                    <article class="reserva-item" data-id="patins" data-nome="Patins Inline" data-preco="40">
+                        <span class="reserva-selo"><i aria-hidden="true"></i>Disponível</span>
+                        <input type="checkbox" class="reserva-check" id="item-patins" aria-label="Selecionar Patins Inline">
+                        <img src="patins.png" alt="Patins inline FLUXO" loading="lazy">
+                        <h3>Patins Inline</h3>
+                        <p class="reserva-item-preco">A partir de R$40,00 /dia</p>
+                        <a href="produto.html?item=patins" class="reserva-item-link">Ver mais detalhes</a>
+                    </article>
+
+                    <!-- STAND UP PADDLE -->
+                    <article class="reserva-item" data-id="sup" data-nome="Stand Up Paddle" data-preco="90">
+                        <span class="reserva-selo"><i aria-hidden="true"></i>Disponível</span>
+                        <input type="checkbox" class="reserva-check" id="item-sup" aria-label="Selecionar Stand Up Paddle">
+                        <img src="stand-up-paddle.png" alt="Prancha de stand up paddle FLUXO" loading="lazy">
+                        <h3>Stand Up Paddle</h3>
+                        <p class="reserva-item-preco">A partir de R$90,00 /dia</p>
+                        <a href="produto.html?item=sup" class="reserva-item-link">Ver mais detalhes</a>
+                    </article>
+
+                    <!-- BOLA -->
+                    <article class="reserva-item" data-id="bola" data-nome="Bola de Futebol" data-preco="15">
+                        <span class="reserva-selo"><i aria-hidden="true"></i>Disponível</span>
+                        <input type="checkbox" class="reserva-check" id="item-bola" aria-label="Selecionar Bola de Futebol">
+                        <img src="bola.png" alt="Bola de futebol FLUXO" loading="lazy">
+                        <h3>Bola de Futebol</h3>
+                        <p class="reserva-item-preco">A partir de R$15,00 /dia</p>
+                        <a href="produto.html?item=bola" class="reserva-item-link">Ver mais detalhes</a>
+                    </article>
+
+                    <!-- RAQUETE -->
+                    <article class="reserva-item" data-id="raquete" data-nome="Raquete de Beach Tennis" data-preco="45">
+                        <span class="reserva-selo"><i aria-hidden="true"></i>Disponível</span>
+                        <input type="checkbox" class="reserva-check" id="item-raquete" aria-label="Selecionar Raquete de Beach Tennis">
+                        <img src="raquete.png" alt="Raquete de Beach Tennis FLUXO" loading="lazy">
+                        <h3>Raquete de Beach Tennis</h3>
+                        <p class="reserva-item-preco">A partir de R$45,00 /dia</p>
+                        <a href="produto.html?item=raquete" class="reserva-item-link">Ver mais detalhes</a>
+                    </article>
+
+                    <!-- CAIAQUE -->
+                    <article class="reserva-item" data-id="caiaque" data-nome="Caiaque Sit-on-Top" data-preco="80">
+                        <span class="reserva-selo"><i aria-hidden="true"></i>Disponível</span>
+                        <input type="checkbox" class="reserva-check" id="item-caiaque" aria-label="Selecionar Caiaque Sit-on-Top">
+                        <img src="caiaque.png" alt="Caiaque sit-on-top FLUXO" loading="lazy">
+                        <h3>Caiaque Sit-on-Top</h3>
+                        <p class="reserva-item-preco">A partir de R$80,00 /dia</p>
+                        <a href="produto.html?item=caiaque" class="reserva-item-link">Ver mais detalhes</a>
+                    </article>
+
+                    <!-- BARRACA -->
+                    <article class="reserva-item" data-id="barraca" data-nome="Barraca de Camping" data-preco="60">
+                        <span class="reserva-selo"><i aria-hidden="true"></i>Disponível</span>
+                        <input type="checkbox" class="reserva-check" id="item-barraca" aria-label="Selecionar Barraca de Camping">
+                        <img src="barraca.png" alt="Barraca de camping FLUXO" loading="lazy">
+                        <h3>Barraca de Camping</h3>
+                        <p class="reserva-item-preco">A partir de R$60,00 /dia</p>
+                        <a href="produto.html?item=barraca" class="reserva-item-link">Ver mais detalhes</a>
+                    </article>
+
+                    <!-- KIT DE BADMINTON -->
+                    <article class="reserva-item" data-id="badminton" data-nome="Kit de Badminton" data-preco="45">
+                        <span class="reserva-selo"><i aria-hidden="true"></i>Disponível</span>
+                        <input type="checkbox" class="reserva-check" id="item-badminton" aria-label="Selecionar Kit de Badminton">
+                        <img src="kit-badminton.png" alt="Kit de badminton FLUXO" loading="lazy">
+                        <h3>Kit de Badminton</h3>
+                        <p class="reserva-item-preco">A partir de R$45,00 /dia</p>
+                        <a href="produto.html?item=badminton" class="reserva-item-link">Ver mais detalhes</a>
+                    </article>
+
+                    <!-- PRANCHA DE SURF -->
+                    <article class="reserva-item" data-id="prancha" data-nome="Prancha de Surf" data-preco="85">
+                        <span class="reserva-selo"><i aria-hidden="true"></i>Disponível</span>
+                        <input type="checkbox" class="reserva-check" id="item-prancha" aria-label="Selecionar Prancha de Surf">
+                        <img src="prancha-de-surf.png" alt="Prancha de surf FLUXO" loading="lazy">
+                        <h3>Prancha de Surf</h3>
+                        <p class="reserva-item-preco">A partir de R$85,00 /dia</p>
+                        <a href="produto.html?item=prancha" class="reserva-item-link">Ver mais detalhes</a>
+                    </article>
+
+                    <!-- ROUPA DE SURF -->
+                    <article class="reserva-item" data-id="roupa-surf" data-nome="Roupa de Surf" data-preco="35">
+                        <span class="reserva-selo"><i aria-hidden="true"></i>Disponível</span>
+                        <input type="checkbox" class="reserva-check" id="item-roupa-surf" aria-label="Selecionar Roupa de Surf">
+                        <img src="roupa-de-surf.png" alt="Roupa de surf FLUXO" loading="lazy">
+                        <h3>Roupa de Surf</h3>
+                        <p class="reserva-item-preco">A partir de R$35,00 /dia</p>
+                        <a href="produto.html?item=roupa-surf" class="reserva-item-link">Ver mais detalhes</a>
+                    </article>
+
+                    <!-- KIT DE NATAÇÃO -->
+                    <article class="reserva-item" data-id="natacao" data-nome="Kit de Natação" data-preco="30">
+                        <span class="reserva-selo"><i aria-hidden="true"></i>Disponível</span>
+                        <input type="checkbox" class="reserva-check" id="item-natacao" aria-label="Selecionar Kit de Natação">
+                        <img src="kit-natacao.png" alt="Kit de natação FLUXO" loading="lazy">
+                        <h3>Kit de Natação</h3>
+                        <p class="reserva-item-preco">A partir de R$30,00 /dia</p>
+                        <a href="produto.html?item=natacao" class="reserva-item-link">Ver mais detalhes</a>
+                    </article>
+
+                    <!-- KIT DE SEGURANÇA -->
+                    <article class="reserva-item" data-id="seguranca" data-nome="Kit de Segurança" data-preco="25">
+                        <span class="reserva-selo"><i aria-hidden="true"></i>Disponível</span>
+                        <input type="checkbox" class="reserva-check" id="item-seguranca" aria-label="Selecionar Kit de Segurança">
+                        <img src="kit-seguranca.png" alt="Kit de segurança FLUXO" loading="lazy">
+                        <h3>Kit de Segurança</h3>
+                        <p class="reserva-item-preco">A partir de R$25,00 /dia</p>
+                        <a href="produto.html?item=seguranca" class="reserva-item-link">Ver mais detalhes</a>
+                    </article>
+
+                    <!-- REDE DE VÔLEI -->
+                    <article class="reserva-item" data-id="rede-volei" data-nome="Rede de Vôlei" data-preco="50">
+                        <span class="reserva-selo"><i aria-hidden="true"></i>Disponível</span>
+                        <input type="checkbox" class="reserva-check" id="item-rede-volei" aria-label="Selecionar Rede de Vôlei">
+                        <img src="rede-volei.png" alt="Rede de vôlei FLUXO" loading="lazy">
+                        <h3>Rede de Vôlei</h3>
+                        <p class="reserva-item-preco">A partir de R$50,00 /dia</p>
+                        <a href="produto.html?item=rede-volei" class="reserva-item-link">Ver mais detalhes</a>
+                    </article>
+
+                    <!-- MESA DE PING-PONG -->
+                    <article class="reserva-item" data-id="pingpong" data-nome="Mesa de Ping-Pong" data-preco="70">
+                        <span class="reserva-selo"><i aria-hidden="true"></i>Disponível</span>
+                        <input type="checkbox" class="reserva-check" id="item-pingpong" aria-label="Selecionar Mesa de Ping-Pong">
+                        <img src="mesa-de-pingpong.png" alt="Mesa de ping-pong FLUXO" loading="lazy">
+                        <h3>Mesa de Ping-Pong</h3>
+                        <p class="reserva-item-preco">A partir de R$70,00 /dia</p>
+                        <a href="produto.html?item=pingpong" class="reserva-item-link">Ver mais detalhes</a>
+                    </article>
+
+                    <!-- KIT DE PICKLEBALL -->
+                    <article class="reserva-item" data-id="pickleball" data-nome="Kit de Pickleball" data-preco="50">
+                        <span class="reserva-selo"><i aria-hidden="true"></i>Disponível</span>
+                        <input type="checkbox" class="reserva-check" id="item-pickleball" aria-label="Selecionar Kit de Pickleball">
+                        <img src="kit-pickleball.png" alt="Kit de pickleball FLUXO" loading="lazy">
+                        <h3>Kit de Pickleball</h3>
+                        <p class="reserva-item-preco">A partir de R$50,00 /dia</p>
+                        <a href="produto.html?item=pickleball" class="reserva-item-link">Ver mais detalhes</a>
+                    </article>
+
+                    <!-- KIT DE SLACKLINE -->
+                    <article class="reserva-item" data-id="slackline" data-nome="Kit de Slackline" data-preco="40">
+                        <span class="reserva-selo"><i aria-hidden="true"></i>Disponível</span>
+                        <input type="checkbox" class="reserva-check" id="item-slackline" aria-label="Selecionar Kit de Slackline">
+                        <img src="kit-slackline.png" alt="Kit de slackline FLUXO" loading="lazy">
+                        <h3>Kit de Slackline</h3>
+                        <p class="reserva-item-preco">A partir de R$40,00 /dia</p>
+                        <a href="produto.html?item=slackline" class="reserva-item-link">Ver mais detalhes</a>
+                    </article>
+
+                </div>
+
+                <p class="reserva-aviso-itens">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <circle cx="12" cy="12" r="9"/>
+                        <path d="M12 11v5M12 7.5v.5"/>
+                    </svg>
+                    Selecione os itens desejados para continuar sua reserva.
+                </p>
+
+            </div>
+
+            <!-- COLUNA DA DIREITA: datas + resumo -->
+            <div class="reserva-lateral">
+
+            <!-- DATAS E UNIDADES -->
+            <aside class="reserva-cartao reserva-quando" aria-label="Datas e unidades">
+
+                <h2>Quando você precisa?</h2>
+
+                <!-- RETIRADA -->
+                <div class="reserva-grupo">
+                    <span class="reserva-rotulo" id="rotulo-retirada">Retirada</span>
+                    <div class="reserva-dropdown" id="dd-retirada">
+                        <button type="button" class="reserva-campo" id="campo-retirada"
+                                aria-haspopup="dialog" aria-expanded="false"
+                                aria-labelledby="rotulo-retirada campo-retirada">
+                            <svg class="reserva-icone" viewBox="0 0 24 24" aria-hidden="true">
+                                <rect x="3.5" y="5" width="17" height="15" rx="2.5"/>
+                                <path d="M8 3v4M16 3v4M3.5 10h17"/>
+                            </svg>
+                            <span class="reserva-valor" data-vazio="Selecione a data">Selecione a data</span>
+                            <svg class="reserva-seta" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+                        </button>
+                        <div class="reserva-calendario" id="cal-retirada" role="dialog" aria-label="Escolher data de retirada" hidden></div>
+                    </div>
+                </div>
+
+                <!-- DEVOLUÇÃO -->
+                <div class="reserva-grupo">
+                    <span class="reserva-rotulo" id="rotulo-devolucao">Devolução</span>
+                    <div class="reserva-dropdown" id="dd-devolucao">
+                        <button type="button" class="reserva-campo" id="campo-devolucao"
+                                aria-haspopup="dialog" aria-expanded="false"
+                                aria-labelledby="rotulo-devolucao campo-devolucao">
+                            <svg class="reserva-icone" viewBox="0 0 24 24" aria-hidden="true">
+                                <rect x="3.5" y="5" width="17" height="15" rx="2.5"/>
+                                <path d="M8 3v4M16 3v4M3.5 10h17"/>
+                            </svg>
+                            <span class="reserva-valor" data-vazio="Selecione a data">Selecione a data</span>
+                            <svg class="reserva-seta" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+                        </button>
+                        <div class="reserva-calendario" id="cal-devolucao" role="dialog" aria-label="Escolher data de devolução" hidden></div>
+                    </div>
+                </div>
+
+                <!-- UNIDADE DE RETIRADA -->
+                <div class="reserva-grupo">
+                    <span class="reserva-rotulo" id="rotulo-un-retirada">Unidade de retirada</span>
+                    <div class="reserva-dropdown" id="dd-un-retirada">
+                        <button type="button" class="reserva-campo" id="campo-un-retirada"
+                                aria-haspopup="listbox" aria-expanded="false"
+                                aria-labelledby="rotulo-un-retirada campo-un-retirada">
+                            <svg class="reserva-icone" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0113 0c0 5-6.5 11-6.5 11z"/>
+                                <circle cx="12" cy="10" r="2.3"/>
+                            </svg>
+                            <span class="reserva-valor" data-vazio="Selecione a unidade">Selecione a unidade</span>
+                            <svg class="reserva-seta" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+                        </button>
+                        <ul class="reserva-opcoes" id="op-un-retirada" role="listbox" hidden></ul>
+                    </div>
+                </div>
+
+                <!-- UNIDADE DE DEVOLUÇÃO -->
+                <div class="reserva-grupo">
+                    <span class="reserva-rotulo" id="rotulo-un-devolucao">Unidade de devolução</span>
+                    <div class="reserva-dropdown" id="dd-un-devolucao">
+                        <button type="button" class="reserva-campo" id="campo-un-devolucao"
+                                aria-haspopup="listbox" aria-expanded="false"
+                                aria-labelledby="rotulo-un-devolucao campo-un-devolucao">
+                            <svg class="reserva-icone" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0113 0c0 5-6.5 11-6.5 11z"/>
+                                <circle cx="12" cy="10" r="2.3"/>
+                            </svg>
+                            <span class="reserva-valor" data-vazio="Selecione a unidade">Selecione a unidade</span>
+                            <svg class="reserva-seta" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+                        </button>
+                        <ul class="reserva-opcoes" id="op-un-devolucao" role="listbox" hidden></ul>
+                    </div>
+                </div>
+
+                <div class="reserva-importante">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 3l8 3v5c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/>
+                        <path d="M12 11v4M12 8v.5"/>
+                    </svg>
+                    <div>
+                        <strong>Importante</strong>
+                        <p>
+                            Verifique os horários de funcionamento da
+                            unidade escolhida para retirada e devolução
+                            dos itens.
+                        </p>
+                    </div>
+                </div>
+
+                <p class="reserva-erro" id="reserva-erro" role="alert" aria-live="assertive"></p>
+
+                <button type="button" class="reserva-continuar" id="reserva-continuar">Continuar</button>
+
+            </aside>
+
+            <!-- RESUMO (mesmas informações da barra de baixo) -->
+            <aside class="reserva-cartao reserva-resumo-card" aria-label="Resumo da reserva" aria-live="polite">
+
+                <h2 id="rc-titulo">Resumo da reserva</h2>
+                <p class="rc-texto" id="rc-texto">Adicione itens e selecione as datas para ver o resumo da sua reserva.</p>
+
+                <dl class="rc-lista">
+                    <div>
+                        <dt>Itens selecionados</dt>
+                        <dd id="rc-itens">0</dd>
+                    </div>
+                    <div>
+                        <dt>Período</dt>
+                        <dd id="rc-periodo">–</dd>
+                    </div>
+                    <div>
+                        <dt>Quantidade</dt>
+                        <dd id="rc-quantidade">–</dd>
+                    </div>
+                </dl>
+
+                <dl class="rc-lista rc-valores">
+                    <div>
+                        <dt>Subtotal</dt>
+                        <dd id="rc-subtotal">R$0,00</dd>
+                    </div>
+                    <div>
+                        <dt>Taxa de serviço</dt>
+                        <dd id="rc-taxa">R$0,00</dd>
+                    </div>
+                </dl>
+
+                <div class="rc-total">
+                    <span>Total</span>
+                    <strong id="rc-total">R$0,00</strong>
+                </div>
+
+            </aside>
+
+            </div>
+
+        </section>
+
+        <!-- BENEFÍCIOS -->
+        <section class="reserva-beneficios" aria-label="Benefícios">
+
+            <div class="beneficio">
+                <svg viewBox="0 0 48 48" aria-hidden="true">
+                    <path d="M4 12h24v22H4zM28 19h8l8 8v7H28z"/>
+                    <circle cx="14" cy="36" r="4"/>
+                    <circle cx="36" cy="36" r="4"/>
+                </svg>
+                <div>
+                    <h3>Entrega rápida</h3>
+                    <p>Receba onde quiser com agilidade.</p>
+                </div>
+            </div>
+
+            <div class="beneficio">
+                <svg viewBox="0 0 48 48" aria-hidden="true">
+                    <path d="M24 5l15 6v11c0 10-6 17-15 21C15 39 9 32 9 22V11z"/>
+                    <path d="M17 24l5 5 9-10"/>
+                </svg>
+                <div>
+                    <h3>Seguro incluso</h3>
+                    <p>Mais tranquilidade durante o uso.</p>
+                </div>
+            </div>
+
+            <div class="beneficio">
+                <svg viewBox="0 0 48 48" aria-hidden="true">
+                    <path d="M9 28v-4a15 15 0 0130 0v4"/>
+                    <rect x="6" y="26" width="8" height="12" rx="3"/>
+                    <rect x="34" y="26" width="8" height="12" rx="3"/>
+                    <path d="M38 38c0 4-4 6-9 6"/>
+                </svg>
+                <div>
+                    <h3>Suporte completo</h3>
+                    <p>Atendimento rápido e humanizado.</p>
+                </div>
+            </div>
+
+            <div class="beneficio">
+                <svg viewBox="0 0 48 48" aria-hidden="true">
+                    <path d="M8 18h28l-6-6M40 30H12l6 6"/>
+                </svg>
+                <div>
+                    <h3>Troca facilitada</h3>
+                    <p>Trocou de ideia? A gente resolve.</p>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER: mesma estrutura do site -->
+    <footer class="rodape">
+
+        <div class="rodape-conteudo">
+
+            <div class="rodape-marca">
+                <a href="index.html#inicio" class="rodape-logo">
+                    <img src="logo.fluxo.png" alt="FLUXO">
+                </a>
+
+                <p>
+                    Facilitamos o seu acesso ao esporte com
+                    equipamentos de qualidade e praticidade
+                    que cabem no seu ritmo.
+                </p>
+            </div>
+
+            <div class="rodape-coluna">
+                <h3>Links rápidos</h3>
+                <a href="produtos.html">Produtos</a>
+                <a href="como-funciona.html">Como Funciona</a>
+                <a href="sobre-nos.html">Sobre nós</a>
+                <a href="login.html">Login</a>
+            </div>
+
+            <div class="rodape-coluna">
+                <h3>Contatos</h3>
+                <a href="https://wa.me/5512996831220"
+                   target="_blank"
+                   rel="noopener noreferrer">(12) 99683-1220</a>
+                <a href="mailto:fluxoesporte@gmail.com">
+                    fluxoesporte@gmail.com
+                </a>
+                <span>São Paulo - SP</span>
+            </div>
+
+            <div class="rodape-coluna">
+                <h3>Ajuda</h3>
+                <a href="#perguntas">Perguntas frequentes</a>
+                <a href="#politica">Política de locação</a>
+                <a href="#termos">Termos de uso</a>
+            </div>
+
+        </div>
+
+        <div class="rodape-inferior">
+            <p>© 2026 Fluxo. Todos os direitos reservados.</p>
+
+            <a href="https://www.instagram.com/fluxo.esporte/?utm_source=ig_web_button_share_sheet"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Instagram da FLUXO"
+               class="instagram-link">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <rect x="3" y="3" width="18" height="18" rx="5"/>
+                    <circle cx="12" cy="12" r="4"/>
+                    <circle cx="18" cy="6" r="1"
+                            fill="currentColor" stroke="none"/>
+                </svg>
+            </a>
+        </div>
+
+    </footer>
+
+</body>
+</html>

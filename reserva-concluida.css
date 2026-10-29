@@ -1,0 +1,436 @@
+/* ==========================================
+   FLUXO - PÁGINA DE RESERVA CONCLUÍDA
+   Os estilos da navbar e do footer ficam
+   no style.css compartilhado.
+========================================== */
+
+.pagina-concluida {
+    --azul: #004aad;
+    --verde: #00bd70;
+    --verde-escuro: #00a560;
+    --verde-claro: #d9f3e6;
+    --borda: #e1e5ec;
+    --texto: #111827;
+    --texto-suave: #4b5563;
+
+    width: 100%;
+    padding-bottom: 48px;
+    color: var(--texto);
+}
+
+.pagina-concluida svg {
+    flex-shrink: 0;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* ===== TOPO COM CONFETES ===== */
+
+.rc-topo {
+    position: relative;
+    overflow: hidden;
+    padding: 56px 20px 34px;
+    text-align: center;
+}
+
+.rc-confetes {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.rc-confete {
+    position: absolute;
+    top: -20px;
+    display: block;
+    opacity: 0;
+    animation-name: rc-cair;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+@keyframes rc-cair {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 0, 0) rotate(0deg);
+    }
+    8% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+        transform: translate3d(var(--deriva), var(--queda), 0)
+                   rotate(var(--giro));
+    }
+}
+
+.rc-topo-conteudo {
+    position: relative;
+    z-index: 1;
+}
+
+.rc-selo {
+    width: 92px;
+    height: 92px;
+    margin: 0 auto 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1.5px solid #8fd9b6;
+    border-radius: 50%;
+    background: var(--verde-claro);
+    color: var(--verde);
+    animation: rc-pulo 0.6s cubic-bezier(0.2, 1.4, 0.4, 1) both;
+}
+
+.rc-selo svg {
+    width: 54px;
+    height: 54px;
+    stroke-width: 4;
+}
+
+.rc-selo path {
+    stroke-dasharray: 44;
+    stroke-dashoffset: 44;
+    animation: rc-traco 0.5s 0.35s ease-out forwards;
+}
+
+@keyframes rc-pulo {
+    from { transform: scale(0.4); opacity: 0; }
+    to   { transform: scale(1);   opacity: 1; }
+}
+
+@keyframes rc-traco {
+    to { stroke-dashoffset: 0; }
+}
+
+.rc-topo h1 {
+    margin-bottom: 6px;
+    color: var(--verde);
+    font-size: clamp(30px, 5vw, 40px);
+    line-height: 1.15;
+    font-weight: 700;
+}
+
+.rc-topo p {
+    color: var(--texto);
+    font-size: clamp(15px, 2.2vw, 18px);
+    line-height: 1.4;
+}
+
+/* ===== CÓDIGO DA RESERVA ===== */
+
+.rc-codigo {
+    position: relative;
+    z-index: 1;
+    width: min(560px, 100% - 34px);
+    margin: 0 auto 32px;
+    padding: 22px 34px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 22px;
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+    background: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16);
+}
+
+.rc-codigo-info {
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.rc-codigo-info > svg {
+    width: 46px;
+    height: 46px;
+    color: var(--verde);
+    stroke-width: 2.4;
+}
+
+.rc-codigo-info span {
+    display: block;
+    margin-bottom: 2px;
+    font-size: 13px;
+    color: var(--texto);
+}
+
+.rc-codigo-info strong {
+    display: block;
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+}
+
+.rc-botao-contorno,
+.rc-botao {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 11px 26px;
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.rc-botao-contorno {
+    flex-shrink: 0;
+    border: 1.5px solid var(--verde);
+    background: #ffffff;
+    color: var(--verde-escuro);
+}
+
+.rc-botao-contorno:hover {
+    background: var(--verde);
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+.rc-botao {
+    border: 1.5px solid var(--verde);
+    background: var(--verde);
+    color: #ffffff;
+}
+
+.rc-botao:hover {
+    background: var(--verde-escuro);
+    transform: translateY(-1px);
+}
+
+/* ===== RESUMO DA RESERVA ===== */
+
+.rc-resumo {
+    width: min(800px, 100% - 34px);
+    margin: 0 auto;
+    padding: 24px 22px 20px;
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+    background: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16);
+}
+
+.rc-resumo-titulo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--borda);
+    color: var(--azul);
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.rc-resumo-titulo svg {
+    width: 28px;
+    height: 28px;
+    stroke-width: 1.7;
+}
+
+.rc-itens {
+    list-style: none;
+}
+
+.rc-item {
+    display: grid;
+    grid-template-columns: minmax(150px, 1.5fr) 1fr 1fr auto 90px;
+    align-items: center;
+    gap: 18px;
+    padding: 12px 4px;
+    border-bottom: 1px solid var(--borda);
+}
+
+.rc-produto {
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.rc-produto img {
+    width: 56px;
+    height: 56px;
+    flex-shrink: 0;
+    object-fit: contain;
+}
+
+.rc-produto strong {
+    display: block;
+    margin-bottom: 2px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.rc-produto span {
+    display: block;
+    color: var(--texto-suave);
+    font-size: 12px;
+    line-height: 1.35;
+}
+
+.rc-data {
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.rc-data span {
+    display: block;
+}
+
+.rc-data span:first-child {
+    font-weight: 700;
+}
+
+.rc-dias {
+    padding: 4px 14px;
+    border: 1px solid #8fd9b6;
+    border-radius: 4px;
+    background: var(--verde-claro);
+    color: var(--verde-escuro);
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.rc-preco {
+    font-size: 13px;
+    font-weight: 700;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.rc-total {
+    margin-top: 6px;
+    padding-top: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    color: var(--azul);
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.rc-total strong {
+    font-size: 17px;
+}
+
+/* ===== SEM RESERVA ===== */
+
+.rc-vazio {
+    width: min(520px, 100% - 34px);
+    margin: 70px auto;
+    padding: 36px 26px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+    background: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    text-align: center;
+}
+
+.rc-vazio[hidden],
+#rc-conteudo[hidden] {
+    display: none;
+}
+
+.rc-vazio svg {
+    width: 52px;
+    height: 52px;
+    color: var(--verde);
+}
+
+.rc-vazio h1 {
+    color: var(--azul);
+    font-size: 22px;
+}
+
+.rc-vazio p {
+    max-width: 380px;
+    color: var(--texto-suave);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* ===== RESPONSIVO ===== */
+
+@media (max-width: 720px) {
+    .rc-topo {
+        padding-top: 40px;
+    }
+
+    .rc-codigo {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 22px 20px;
+    }
+
+    .rc-codigo-info {
+        justify-content: center;
+    }
+
+    .rc-item {
+        grid-template-columns: 1fr 1fr auto;
+        row-gap: 10px;
+        column-gap: 12px;
+    }
+
+    .rc-produto {
+        grid-column: 1 / -1;
+    }
+
+    .rc-preco {
+        grid-column: 3;
+        grid-row: 2;
+    }
+
+    .rc-dias {
+        justify-self: start;
+    }
+}
+
+@media (max-width: 420px) {
+    .rc-resumo {
+        padding: 20px 14px 16px;
+    }
+
+    .rc-item {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .rc-dias {
+        grid-column: 1;
+        grid-row: 3;
+    }
+
+    .rc-preco {
+        grid-column: 2;
+        grid-row: 3;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .rc-confete {
+        animation: none;
+        opacity: 1;
+        top: var(--topo-fixo);
+    }
+
+    .rc-selo,
+    .rc-selo path {
+        animation: none;
+        stroke-dashoffset: 0;
+    }
+}
